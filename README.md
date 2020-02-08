@@ -9,11 +9,12 @@ Call of Duty Black Ops Mod - First Rooms
 
 [Twitter](https://twitter.com/5and55)
 
-## Gereral
+## General
 * Round 10 start
 * Points set to 1000
-* Defualt fov set to 75
+* Default fov set to 75
 * Fixed backwards walking speed
+* Start with quick revive in solo
 
 ## Kino Der Toten
 * Players start in the dressing room (mp5)

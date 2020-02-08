@@ -1683,7 +1683,7 @@ onPlayerSpawned()
 
 
 				// testing only
-				self thread get_position();
+				//self thread get_position();
 
 				// setup of game
 				self thread start_game();
@@ -6658,10 +6658,10 @@ get_position()
 
 	while(1)
 	{
-		//iprintln(level.zombie_vars["zombie_spawn_delay"]);
+		iprintln(level.zombie_vars["zombie_spawn_delay"]);
 
-		iprintln(player.origin);
-		iprintln(player.angles);
+		//iprintln(player.origin);
+		//iprintln(player.angles);
 		wait .5;
 	}
 }
