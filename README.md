@@ -1,10 +1,21 @@
 # First Rooms
 Call of Duty Black Ops Mod - First Rooms
 
+## Created by: 5and5
+
+[YouTube](https://www.youtube.com/user/Zomb0s4life)
+
+[Twitch](https://twitch.tv/5and5)
+
+[Twitter](https://twitter.com/5and55)
+
+## Gereral
+* Round 10 start
+* Defualt fov set to 75
+* Fixed backwards walking speed
+
+
 TODO:
--set round 10 start
--find spawn rate of round 10
--set spawn rate to round 10
--find xyz of room
--set spawn origin for all players
--change initial zone to spawning room
+* find xyz of room
+* set spawn origin for all players
+* change initial zone to spawning room
