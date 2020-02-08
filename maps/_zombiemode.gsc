@@ -1685,8 +1685,8 @@ onPlayerSpawned()
 				// testing only
 				self thread get_position();
 
-				// let people know they have to fininish round 5
-				self thread starting_message();
+				// setup of game
+				self thread start_game();
 			}
 		}
 	}
@@ -6613,7 +6613,7 @@ set_sidequest_completed(id)
 	}
 }
 
-starting_message()
+start_game()
 {
 	flag_wait("all_players_spawned");
 	wait (2);
@@ -6635,13 +6635,19 @@ starting_message()
 		level.start_game[i] FadeOverTime( 1 );
 		level.start_game[i].alpha = 1;
 	}
-
-	wait (5);
+	wait (6);
 
 	for( i = 0; i < players.size; i++ )
 	{
 		level.start_game[i] FadeOverTime( 0.8 );
 		level.start_game[i].alpha = 0;
+	}
+
+	// in solo player gets qr
+	wait (3);
+	if (players.size == 1)
+	{
+	players[0] maps\_zombiemode_perks::give_perk( "specialty_quickrevive" , true );
 	}
 }
 

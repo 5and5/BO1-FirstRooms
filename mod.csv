@@ -1,5 +1,7 @@
 //GENERAL
 rawfile,maps/_zombiemode.gsc
+rawfile,maps/_zombiemode_weapons.gsc
+
 //MAPS
 rawfile,maps/zombie_cod5_prototype.gsc
 rawfile,maps/zombie_cod5_asylum.gsc
