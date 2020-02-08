@@ -11,11 +11,10 @@ Call of Duty Black Ops Mod - First Rooms
 
 ## Gereral
 * Round 10 start
+* Points set to 1000
 * Defualt fov set to 75
 * Fixed backwards walking speed
 
+## Kino Der Toten
+* Players start in the dressing room (mp5)
 
-TODO:
-* find xyz of room
-* set spawn origin for all players
-* change initial zone to spawning room

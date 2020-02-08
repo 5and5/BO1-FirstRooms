@@ -1427,7 +1427,7 @@ difficulty_init()
 #/
 	for ( p=0; p<players.size; p++ )
 	{
-		players[p].score = points;
+		players[p].score = 1000; //points; 5555
 		players[p].score_total = players[p].score;
 		players[p].old_score = players[p].score;
 	}
@@ -1635,7 +1635,7 @@ onPlayerSpawned()
 
 		if ( is_true( level.player_out_of_playable_area_monitor ) )
 		{
-			self thread player_out_of_playable_area_monitor();
+			//self thread player_out_of_playable_area_monitor();
 		}
 
 		if ( is_true( level.player_too_many_weapons_monitor ) )
@@ -1682,7 +1682,11 @@ onPlayerSpawned()
 				self thread player_grenade_watcher();
 
 
+				// testing only
 				self thread get_position();
+
+				// let people know they have to fininish round 5
+				self thread starting_message();
 			}
 		}
 	}
@@ -3903,7 +3907,7 @@ chalk_round_over()
 
 round_think()
 {
-	level.round_number = 10; //69
+	level.round_number = 9; //69
 	level.zombie_vars["zombie_spawn_delay"] = 1.2605; // round 10 spawn rate
 
 	level.zombie_move_speed = 105; // running speed
@@ -5439,14 +5443,44 @@ coop_player_spawn_placement()
 
 	//chrisp - adding support for overriding the default spawning method
 
+	// init arrays
+	spawn_origin = array((0, 0, 0),
+					     (0, 0, 0),
+					     (0, 0, 0),
+					     (0, 0, 0));
+
+	spawn_angle = array((0, 0, 0),
+					    (0, 0, 0),
+					    (0, 0, 0),
+					    (0, 0, 0));
+
+
+	if (level.script == "zombie_theater")
+	{
+		kino_origin = array((1157, 927,-15),
+							(1157,999,15),
+							(1157,1099,15),
+							(1157,1210,15));
+
+		kino_angle = array((0, 143, 0),
+						   (0, 172, 0),
+						   (0, -153, 0),
+						   (0, -148, 0));
+
+		spawn_origin = kino_origin;
+		spawn_angle = kino_angle;
+	}
+
 	players = get_players();
 
 	for( i = 0; i < players.size; i++ )
 	{
-		players[i] setorigin( structs[i].origin );
+		players[i] setorigin( spawn_origin[i] ); //structs[i].origin
 		players[i] setplayerangles( structs[i].angles );
 		players[i].spectator_respawn = structs[i];
 	}
+
+	//firstroomspawn
 }
 
 
@@ -6579,6 +6613,38 @@ set_sidequest_completed(id)
 	}
 }
 
+starting_message()
+{
+	flag_wait("all_players_spawned");
+	wait (2);
+
+	players = get_players();
+	for( i = 0; i < players.size; i++ )
+	{
+		level.start_game[i] = NewClientHudElem( players[i] );
+		level.start_game[i].alignX = "center";
+		level.start_game[i].alignY = "middle";
+		level.start_game[i].horzAlign = "center";
+		level.start_game[i].vertAlign = "middle";
+		level.start_game[i].y -= 130;
+		level.start_game[i].foreground = true;
+		level.start_game[i].fontScale = 2;
+		level.start_game[i].alpha = 0;
+		level.start_game[i].color = ( 1.0, 1.0, 1.0 );
+		level.start_game[i] SetText( "Kill the first few zombies to skip to round 10" );
+		level.start_game[i] FadeOverTime( 1 );
+		level.start_game[i].alpha = 1;
+	}
+
+	wait (5);
+
+	for( i = 0; i < players.size; i++ )
+	{
+		level.start_game[i] FadeOverTime( 0.8 );
+		level.start_game[i].alpha = 0;
+	}
+}
+
 get_position()
 {
 	flag_wait("all_players_spawned");
@@ -6589,7 +6655,7 @@ get_position()
 		//iprintln(level.zombie_vars["zombie_spawn_delay"]);
 
 		iprintln(player.origin);
-		//iprintln(player.angles);
-		wait .05;
+		iprintln(player.angles);
+		wait .5;
 	}
 }
