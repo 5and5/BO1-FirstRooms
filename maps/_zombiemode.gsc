@@ -3907,11 +3907,10 @@ chalk_round_over()
 
 round_think()
 {
-	level.round_number = 9; //69
+	level.round_number = 10;
 	level.zombie_vars["zombie_spawn_delay"] = 1.2605; // round 10 spawn rate
-
 	level.zombie_move_speed = 105; // running speed
-
+	level.first_round = false;
 
 	for( ;; )
 	{
@@ -6616,38 +6615,14 @@ set_sidequest_completed(id)
 start_game()
 {
 	flag_wait("all_players_spawned");
+
 	wait (2);
 
-	players = get_players();
-	for( i = 0; i < players.size; i++ )
-	{
-		level.start_game[i] = NewClientHudElem( players[i] );
-		level.start_game[i].alignX = "center";
-		level.start_game[i].alignY = "middle";
-		level.start_game[i].horzAlign = "center";
-		level.start_game[i].vertAlign = "middle";
-		level.start_game[i].y -= 130;
-		level.start_game[i].foreground = true;
-		level.start_game[i].fontScale = 2;
-		level.start_game[i].alpha = 0;
-		level.start_game[i].color = ( 1.0, 1.0, 1.0 );
-		level.start_game[i] SetText( "Kill the first few zombies to skip to round 10" );
-		level.start_game[i] FadeOverTime( 1 );
-		level.start_game[i].alpha = 1;
-	}
-	wait (6);
-
-	for( i = 0; i < players.size; i++ )
-	{
-		level.start_game[i] FadeOverTime( 0.8 );
-		level.start_game[i].alpha = 0;
-	}
-
 	// in solo player gets qr
-	wait (3);
+	players = get_players();
 	if (players.size == 1)
 	{
-	players[0] maps\_zombiemode_perks::give_perk( "specialty_quickrevive" , true );
+		players[0] maps\_zombiemode_perks::give_perk( "specialty_quickrevive" , true );
 	}
 }
 
