@@ -1427,7 +1427,7 @@ difficulty_init()
 #/
 	for ( p=0; p<players.size; p++ )
 	{
-		players[p].score = 1000; //points; 5555
+		players[p].score = 1500; //points; 5555
 		players[p].score_total = players[p].score;
 		players[p].old_score = players[p].score;
 	}
@@ -1683,7 +1683,7 @@ onPlayerSpawned()
 
 
 				// testing only
-				//self thread get_position();
+				self thread get_position();
 
 				// setup of game
 				self thread start_game();
@@ -5457,18 +5457,58 @@ coop_player_spawn_placement()
 
 	if (level.script == "zombie_theater")
 	{
-		kino_origin = array((1157, 927,-15),
+		// mp5
+		spawn_origin = array((1157, 927,-15),
 							(1157,999,15),
 							(1157,1099,15),
 							(1157,1210,15));
 
-		kino_angle = array((0, 143, 0),
+		spawn_angle = array((0, 123, 0),
 						   (0, 172, 0),
 						   (0, -153, 0),
 						   (0, -148, 0));
+	}
 
-		spawn_origin = kino_origin;
-		spawn_angle = kino_angle;
+	if (level.script == "zombie_pentagon")
+	{
+		// mpl
+		spawn_origin = array((-755, 2654, -511),
+							(-775, 2554, -511),
+							(-795, 2454, -511),
+							(-815, 2354, -511));
+
+		spawn_angle = array((0, -126, 0),
+						   (0, -126, 0),
+						   (0, -126, 0),
+						   (0, -126, 0));
+	}
+
+	if (level.script == "zombie_cod5_prototype")
+	{
+		// top floor
+		spawn_origin = array((-151, 928, 144),
+							(-110, 855, 144),
+							(-66, 777, 144),
+							(-15, 686, 144));
+
+		spawn_angle = array((0, -18, 0),
+						   (0, 1, 0),
+						   (0, 3, 0),
+						   (0, 26, 0));
+	}
+
+	if (level.script == "zombie_cod5_asylum")
+	{
+		// top floor
+		spawn_origin = array((440, 864, 237),
+							(340, 864, 237),
+							(240, 864, 237),
+							(140, 864, 237));
+
+		spawn_angle = array((0, -130, 0),
+						   (0, -130, 0),
+						   (0, -130, 0),
+						   (0, -130, 0));
 	}
 
 	players = get_players();
@@ -5476,7 +5516,7 @@ coop_player_spawn_placement()
 	for( i = 0; i < players.size; i++ )
 	{
 		players[i] setorigin( spawn_origin[i] ); //structs[i].origin
-		players[i] setplayerangles( structs[i].angles );
+		players[i] setplayerangles( spawn_angle[i] );
 		players[i].spectator_respawn = structs[i];
 	}
 
@@ -6658,10 +6698,10 @@ get_position()
 
 	while(1)
 	{
-		iprintln(level.zombie_vars["zombie_spawn_delay"]);
+		//iprintln(level.zombie_vars["zombie_spawn_delay"]);
 
-		//iprintln(player.origin);
-		//iprintln(player.angles);
+		iprintln(player.origin);
+		iprintln(player.angles);
 		wait .5;
 	}
 }

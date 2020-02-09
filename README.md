@@ -19,3 +19,5 @@ Call of Duty Black Ops Mod - First Rooms
 ## Kino Der Toten
 * Players start in the dressing room (mp5)
 
+## Five
+* Players start second floor by the elevator (steak out)
