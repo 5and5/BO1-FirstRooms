@@ -1683,9 +1683,9 @@ onPlayerSpawned()
 
 
 				// testing only
-				self thread get_position();
+				//self thread get_position();
 
-				// setup of game
+				// setup game
 				self thread start_game();
 			}
 		}
@@ -6656,7 +6656,7 @@ start_game()
 {
 	flag_wait("all_players_spawned");
 
-	wait (2);
+	wait (3);
 
 	// in solo player gets qr
 	players = get_players();

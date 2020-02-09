@@ -71,7 +71,7 @@ main()
 
 	maps\_waw_zombiemode_radio::init();
 
-	level.Player_Spawn_func = ::spawn_point_override;
+	//level.Player_Spawn_func = ::spawn_point_override;
 	level.zombiemode_precache_player_model_override = ::precache_player_model_override;
 	level.zombiemode_give_player_model_override = ::give_player_model_override;
 	level.zombiemode_player_set_viewmodel_override = ::player_set_viewmodel_override;
@@ -365,7 +365,7 @@ init_zombie_asylum()
 	flag_init("both_doors_opened");			//keeps track of the players opening the 'magic box' room doors
 	flag_init("electric_switch_used");	//when the players use the electric switch in the control room
 
-	flag_set("spawn_point_override");
+	//flag_set("spawn_point_override");
 
 	//electric traps
 	level thread init_elec_trap_trigs();
