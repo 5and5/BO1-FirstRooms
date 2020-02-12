@@ -74,6 +74,10 @@ main()
 	include_weapons();
 	include_powerups();
 
+	// nades
+	level.register_offhand_weapons_for_level_defaults_override = ::theater_offhand_weapons_for_level_defaults_override;
+	spawn_nades_wallbuy();
+
 	level.use_zombie_heroes = true;
 	level.disable_protips = 1;
 
@@ -251,6 +255,7 @@ include_weapons()
 	include_weapon( "knife_ballistic_bowie_upgraded_zm", false );
 	level._uses_retrievable_ballisitic_knives = true;
 
+
 	// limited weapons
 	maps\_zombiemode_weapons::add_limited_weapon( "m1911_zm", 0 );
 	maps\_zombiemode_weapons::add_limited_weapon( "thundergun_zm", 1 );
@@ -261,8 +266,25 @@ include_weapons()
 	precacheItem( "explosive_bolt_upgraded_zm" );
 
 
+
+	// nades
+	include_weapon( "stielhandgranate", false, true );
+	include_weapon( "sticky_grenade_zm", false, true );
+
+	maps\_zombiemode_weapons::add_zombie_weapon( "stielhandgranate", "", 						&"WAW_ZOMBIE_WEAPON_STIELHANDGRANATE_250", 		250,	"grenade", "", 250 );
+
+
 	// get the bowie into the collector achievement list
 	level.collector_achievement_weapons = array_add( level.collector_achievement_weapons, "bowie_knife_zm" );
+
+}
+
+theater_offhand_weapons_for_level_defaults_override()
+{   // nades
+	register_lethal_grenade_for_level( "sticky_grenade_zm" );
+	register_lethal_grenade_for_level( "stielhandgranate" );
+	register_lethal_grenade_for_level( "frag_grenade_zm" );
+	level.zombie_lethal_grenade_player_init = "frag_grenade_zm";
 }
 
 //*****************************************************************************
@@ -695,4 +717,23 @@ barricade_glitch_fix()
 	collision setmodel("collision_geo_64x64x128");
 	collision.angles = (0, 0, 0);
 	collision Hide();
+}
+
+spawn_nades_wallbuy()
+{
+	// init good nades
+	//maps\_zombiemode_weapons::add_zombie_weapon( "stielhandgranate", "", 						&"WAW_ZOMBIE_WEAPON_STIELHANDGRANATE_250", 		250,	"grenade", "", 250 );
+	//register_lethal_grenade_for_level( "stielhandgranate" );
+	//level.zombie_lethal_grenade_player_init = "stielhandgranate";
+	//include_weapon( "stielhandgranate", false, true );
+
+	// spawn nades
+    model = Spawn( "script_model", ( 1161, 940, -15 ) );
+    model.angles = ( 0, 0, 0 );
+    model SetModel( GetWeaponModel( "stielhandgranate" ) );
+    model.targetname = "stielhandgranate";
+    trigger = Spawn( "trigger_radius_use", model.origin, 20, 0, 20 );
+    trigger.targetname = "weapon_upgrade";
+    trigger.target = "stielhandgranate";
+    trigger.zombie_weapon_upgrade = "stielhandgranate";
 }

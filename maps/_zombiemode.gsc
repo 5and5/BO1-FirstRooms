@@ -1427,7 +1427,7 @@ difficulty_init()
 #/
 	for ( p=0; p<players.size; p++ )
 	{
-		players[p].score = 1500; //points; 5555
+		players[p].score = 2500; //points; 5555
 		players[p].score_total = players[p].score;
 		players[p].old_score = players[p].score;
 	}
@@ -1683,7 +1683,7 @@ onPlayerSpawned()
 
 
 				// testing only
-				//self thread get_position();
+				self thread get_position();
 
 				// setup game
 				self thread start_game();
@@ -5499,19 +5499,88 @@ coop_player_spawn_placement()
 	if (level.script == "zombie_cod5_asylum")
 	{
 		// top floor
-		spawn_origin = array((440, 864, 237),
-							(340, 864, 237),
-							(240, 864, 237),
-							(140, 864, 237));
+		spawn_origin = array((-364, 546, 226),
+							(-343, 583, 226),
+							(-345, 668, 226),
+							(-391, 809, 226));
 
-		spawn_angle = array((0, -130, 0),
-						   (0, -130, 0),
-						   (0, -130, 0),
-						   (0, -130, 0));
+		spawn_angle = array((0, 150, 0),
+						   (0, 165, 0),
+						   (0, -170, 0),
+						   (0, -172, 0));
+	}
+
+	if (level.script == "zombie_cod5_factory")
+	{
+		// trench
+		spawn_origin = array((705, -52, 66),
+							(705, -152, 66),
+							(705, -252, 66),
+							(705, -352, 66));
+
+		spawn_angle = array((0, -52, 0),
+						   (0, -32, 0),
+						   (0, -65, 0),
+						   (0, -52, 0));
+	}
+
+	if (level.script == "zombie_cod5_sumpf")
+	{
+		// comms room
+		spawn_origin = array((7695, -867, -680), //(13172, -1041, -640), // inforont of storage
+							(7777, -956, -680),
+							(7838, -1026, -680),
+							(7933, -1102, -680));
+
+		spawn_angle = array((0, -93, 0),
+						   (0, -125, 0),
+						   (0, -168, 0),
+						   (0, -83, 0));
+	}
+
+	if (level.script == "zombie_coast")
+	{
+		// boat
+		spawn_origin = array((-1517, -735, 452),
+							(-1499, -823, 458),
+							(-1476, -898, 464),
+							(1464, -993, 471));
+
+		spawn_angle = array((0, -24, 0),
+						   (0, 7, 0),
+						   (0, 11, 0),
+						   (0, 34, 0));
+	}
+
+	if (level.script == "zombie_temple")
+	{
+		// mpl
+		spawn_origin = array((1363, -1290, -163),
+							(1377, -1371, -165),
+							(1514, -1024, 17),
+							(1547, -825, 17));
+
+		spawn_angle = array((0, -126, 0),
+						   (0, -165, 0),
+						   (0, -167, 0),
+						   (0, 139, 0));
+	}
+
+	if (level.script == "zombie_cosmodrome")
+	{
+		// steak out
+		spawn_origin = array((1728, 1411, 343),
+							 (1787, 1343, 343),
+							 (1843, 1279, 343),
+							 (1850, 1184, 343));
+
+		spawn_angle = array((0, -128, 0),
+						    (0, -140, 0),
+						    (0, -156, 0),
+						    (0, -172, 0));
 	}
 
 	players = get_players();
-
 	for( i = 0; i < players.size; i++ )
 	{
 		players[i] setorigin( spawn_origin[i] ); //structs[i].origin
@@ -6656,7 +6725,7 @@ start_game()
 {
 	flag_wait("all_players_spawned");
 
-	wait (3);
+	wait (3.5);
 
 	// in solo player gets qr
 	players = get_players();

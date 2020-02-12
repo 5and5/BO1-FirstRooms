@@ -134,8 +134,8 @@ asylum_zone_init()
 	flag_set( "always_on" );
 
 	// activate trap zone
-	zone_init( "north_upstairs_zone");
-	enable_zone( "north_upstairs_zone");
+	zone_init( "north2_upstairs_zone");
+	enable_zone( "north2_upstairs_zone");
 
 	add_adjacent_zone( "west_downstairs_zone", "west2_downstairs_zone", "power_on" );
 
@@ -552,7 +552,7 @@ include_powerups()
 	include_powerup( "insta_kill" );
 	include_powerup( "double_points" );
 	include_powerup( "full_ammo" );
-	include_powerup( "carpenter" );
+	//include_powerup( "carpenter" );
 }
 
 

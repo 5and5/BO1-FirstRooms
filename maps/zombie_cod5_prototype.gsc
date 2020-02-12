@@ -615,7 +615,7 @@ include_powerups()
 	include_powerup( "insta_kill" );
 	include_powerup( "double_points" );
 	include_powerup( "full_ammo" );
-	include_powerup( "carpenter" );
+	//include_powerup( "carpenter" );
 }
 
 above_couches_death()

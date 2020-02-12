@@ -11,13 +11,34 @@ Call of Duty Black Ops Mod - First Rooms
 
 ## General
 * Round 10 start
-* Points set to 1000
+* Points set to 2500
 * Default fov set to 75
 * Fixed backwards walking speed
 * Start with quick revive in solo
 
-## Kino Der Toten
+### Kino Der Toten
 * Players start in the dressing room (mp5)
 
-## Five
+### Five
 * Players start second floor by the elevator (steak out)
+
+### Ascension
+* Players start at the lander above PaP (m16)
+
+### Call of the Dead
+* Players start on second floor of power boat (m16)
+
+### Shangri-la
+* Players start next to spawn (mpl)
+
+### Nacht Der Untoten
+* Players start top floor (trenchgun + bar)
+
+### Verruckt
+* Players start in speed cola trap room (double barrel)
+
+### Shi No Numa
+* Players start in comm room (stg)
+
+### Der Riese
+* Players start in hall way towards jug (trench gun)
