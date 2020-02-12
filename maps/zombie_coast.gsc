@@ -499,8 +499,6 @@ include_weapons()
 	include_weapon( "knife_ballistic_sickle_upgraded_zm", false );
 	level._uses_retrievable_ballisitic_knives = true;
 
-	include_weapon( "stielhandgranate", false, true );
-
 	// limited weapons
 	maps\_zombiemode_weapons::add_limited_weapon( "m1911_zm", 0 );
 //	maps\_zombiemode_weapons::add_limited_weapon( "tesla_gun_zm", 1 );
@@ -529,7 +527,6 @@ coast_offhand_weapon_overrride()
 {
 	register_lethal_grenade_for_level( "frag_grenade_zm" );
 	register_lethal_grenade_for_level( "sticky_grenade_zm" );
-	register_lethal_grenade_for_level( "stielhandgranate" );
 	level.zombie_lethal_grenade_player_init = "sticky_grenade_zm";
 
 	register_tactical_grenade_for_level( "zombie_nesting_dolls" );

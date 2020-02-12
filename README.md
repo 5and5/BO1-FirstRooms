@@ -18,12 +18,14 @@ Call of Duty Black Ops Mod - First Rooms
 
 ### Kino Der Toten
 * Players start in the dressing room (mp5)
+* Added nade wall buy
 
 ### Five
 * Players start second floor by the elevator (steak out)
 
 ### Ascension
 * Players start at the lander above PaP (m16)
+* Added nade wall buy
 
 ### Call of the Dead
 * Players start on second floor of power boat (m16)
@@ -42,3 +44,4 @@ Call of Duty Black Ops Mod - First Rooms
 
 ### Der Riese
 * Players start in hall way towards jug (trench gun)
+* Added nade wall buy

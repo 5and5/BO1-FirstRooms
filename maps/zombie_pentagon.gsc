@@ -949,3 +949,8 @@ barricade_glitch_fix()
 	collision4.angles = (0, 6.19994, 0);
 	collision4 Hide();
 }
+
+spawn_kill_brushes()
+{
+	maps\_zombiemode::spawn_kill_brush( (-1800, 2116, -60), 15, 100 );
+}

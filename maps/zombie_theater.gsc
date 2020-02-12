@@ -74,9 +74,9 @@ main()
 	include_weapons();
 	include_powerups();
 
-	// nades
-	level.register_offhand_weapons_for_level_defaults_override = ::theater_offhand_weapons_for_level_defaults_override;
 	spawn_nades_wallbuy();
+	// nades
+	//level.register_offhand_weapons_for_level_defaults_override = ::theater_offhand_weapons_for_level_defaults_override;
 
 	level.use_zombie_heroes = true;
 	level.disable_protips = 1;
@@ -271,7 +271,7 @@ include_weapons()
 	include_weapon( "stielhandgranate", false, true );
 	include_weapon( "sticky_grenade_zm", false, true );
 
-	maps\_zombiemode_weapons::add_zombie_weapon( "stielhandgranate", "", 						&"WAW_ZOMBIE_WEAPON_STIELHANDGRANATE_250", 		250,	"grenade", "", 250 );
+	//maps\_zombiemode_weapons::add_zombie_weapon( "stielhandgranate", "", 						&"WAW_ZOMBIE_WEAPON_STIELHANDGRANATE_250", 		250,	"grenade", "", 250 );
 
 
 	// get the bowie into the collector achievement list
@@ -721,19 +721,14 @@ barricade_glitch_fix()
 
 spawn_nades_wallbuy()
 {
-	// init good nades
-	//maps\_zombiemode_weapons::add_zombie_weapon( "stielhandgranate", "", 						&"WAW_ZOMBIE_WEAPON_STIELHANDGRANATE_250", 		250,	"grenade", "", 250 );
-	//register_lethal_grenade_for_level( "stielhandgranate" );
-	//level.zombie_lethal_grenade_player_init = "stielhandgranate";
-	//include_weapon( "stielhandgranate", false, true );
-
 	// spawn nades
-    model = Spawn( "script_model", ( 1161, 940, -15 ) );
-    model.angles = ( 0, 0, 0 );
-    model SetModel( GetWeaponModel( "stielhandgranate" ) );
-    model.targetname = "stielhandgranate";
+    model = Spawn( "script_model", ( 1190, 1489, 50.5 ) );
+    model.angles = ( 0, 90, 0 );
+    model SetModel( GetWeaponModel( "frag_grenade_zm" ) );
+    model.targetname = "frag_grenade_zm";
     trigger = Spawn( "trigger_radius_use", model.origin, 20, 0, 20 );
     trigger.targetname = "weapon_upgrade";
-    trigger.target = "stielhandgranate";
-    trigger.zombie_weapon_upgrade = "stielhandgranate";
+    trigger.target = "frag_grenade_zm";
+    trigger.zombie_weapon_upgrade = "frag_grenade_zm";
+
 }
