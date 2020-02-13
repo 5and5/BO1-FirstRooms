@@ -46,6 +46,9 @@ main()
 	include_weapons();
 	include_powerups();
 
+	// nades
+	spawn_nades_wallbuy();
+
 	level.zombiemode_using_marathon_perk = true;
 	level.zombiemode_using_divetonuke_perk = true;
 	level.zombiemode_using_deadshot_perk = true;
@@ -1161,4 +1164,17 @@ temple_revive_solo_fx()
 			break;
 		}
 	}
+}
+
+spawn_nades_wallbuy()
+{
+	// spawn nades
+    model = Spawn( "script_model", ( 1378, -779, 59.5 ) );
+    model.angles = ( 0, 0, 0 );
+    model SetModel( GetWeaponModel( "sticky_grenade_zm" ) );
+    model.targetname = "sticky_grenade_zm";
+    trigger = Spawn( "trigger_radius_use", model.origin, 30, 30, 30 );
+    trigger.targetname = "weapon_upgrade";
+    trigger.target = "sticky_grenade_zm";
+    trigger.zombie_weapon_upgrade = "sticky_grenade_zm";
 }

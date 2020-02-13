@@ -71,7 +71,7 @@ main()
 
 	maps\_waw_zombiemode_radio::init();
 
-	//level.Player_Spawn_func = ::spawn_point_override;
+	level.Player_Spawn_func = ::spawn_point_override;
 	level.zombiemode_precache_player_model_override = ::precache_player_model_override;
 	level.zombiemode_give_player_model_override = ::give_player_model_override;
 	level.zombiemode_player_set_viewmodel_override = ::player_set_viewmodel_override;
@@ -133,9 +133,6 @@ asylum_zone_init()
 	flag_init( "always_on" );
 	flag_set( "always_on" );
 
-	// activate trap zone
-	zone_init( "north2_upstairs_zone");
-	enable_zone( "north2_upstairs_zone");
 
 	add_adjacent_zone( "west_downstairs_zone", "west2_downstairs_zone", "power_on" );
 
@@ -320,7 +317,8 @@ intro_screen()
 
 	}
 
-
+	flag_set("power_on");
+	//electric_current_open_middle_door();
 	level thread magic_box_limit_location_init();
 
 }
@@ -365,7 +363,7 @@ init_zombie_asylum()
 	flag_init("both_doors_opened");			//keeps track of the players opening the 'magic box' room doors
 	flag_init("electric_switch_used");	//when the players use the electric switch in the control room
 
-	//flag_set("spawn_point_override");
+	flag_set("spawn_point_override");
 
 	//electric traps
 	level thread init_elec_trap_trigs();
@@ -453,7 +451,7 @@ init_sounds()
 //-------------------------------------------------------------------------------
 include_weapons()
 {
-	include_weapon( "m1911_zm", false );						// colt
+
 	include_weapon("python_zm");
 	include_weapon("cz75_zm");
 	include_weapon("g11_lps_zm");
@@ -552,7 +550,7 @@ include_powerups()
 	include_powerup( "insta_kill" );
 	include_powerup( "double_points" );
 	include_powerup( "full_ammo" );
-	//include_powerup( "carpenter" );
+	include_powerup( "carpenter" );
 }
 
 

@@ -112,6 +112,10 @@ main()
 
 	include_weapons();
 	include_powerups();
+
+	// nades
+	spawn_nades_wallbuy();
+
 	level.use_zombie_heroes = true;
 	level.zombiemode_using_marathon_perk = true;
 	level.zombiemode_using_divetonuke_perk = true;
@@ -1348,4 +1352,18 @@ init_fx_anims()
 zombie_coast_poi_positioning_func(origin, forward)
 {
 	return maps\_zombiemode_server_throttle::server_safe_ground_trace_ignore_water( "poi_trace", 10, self.origin + forward + ( 0, 0, 10 ) );
+}
+
+spawn_nades_wallbuy()
+{
+	// spawn nades
+    model = Spawn( "script_model", ( -1082, -1078, 530 ) );
+    model.angles = ( 0, 90, 0 );
+    model SetModel( GetWeaponModel( "sticky_grenade_zm" ) );
+    model.targetname = "sticky_grenade_zm";
+    trigger = Spawn( "trigger_radius_use", model.origin, 30, 30, 30d );
+    trigger.targetname = "weapon_upgrade";
+    trigger.target = "sticky_grenade_zm";
+    trigger.zombie_weapon_upgrade = "sticky_grenade_zm";
+
 }

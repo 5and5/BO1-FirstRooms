@@ -5496,7 +5496,7 @@ coop_player_spawn_placement()
 						   (0, 26, 0));
 	}
 
-	if (level.script == "zombie_cod5_asylum")
+	if (level.script == "zombie_cod5_asylumm")
 	{
 		// top floor
 		spawn_origin = array((-364, 546, 226),

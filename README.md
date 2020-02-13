@@ -18,30 +18,36 @@ Call of Duty Black Ops Mod - First Rooms
 
 ### Kino Der Toten
 * Players start in the dressing room (mp5)
-* Added nade wall buy
+* Added grenade wall buy
 
 ### Five
 * Players start second floor by the elevator (steak out)
 
 ### Ascension
 * Players start at the lander above PaP (m16)
-* Added nade wall buy
+* Added grenade wall buy
 
 ### Call of the Dead
 * Players start on second floor of power boat (m16)
+* Added grenade wall buy
 
 ### Shangri-la
 * Players start next to spawn (mpl)
+* Added grenade wall buy
 
 ### Nacht Der Untoten
 * Players start top floor (trenchgun + bar)
 
 ### Verruckt
-* Players start in speed cola trap room (double barrel)
+* Players start in spawn room with the middle door open
 
 ### Shi No Numa
 * Players start in comm room (stg)
+* Added grenade wallbuy
 
 ### Der Riese
 * Players start in hall way towards jug (trench gun)
-* Added nade wall buy
+* Added grenade wall buy
+
+TODO:
+* add kill barrier to five

@@ -68,6 +68,9 @@ main()
 	include_weapons();
 	include_powerups();
 
+	//nades
+	spawn_nades_wallbuy();
+
 	level._effect["zombie_grain"]			= LoadFx( "misc/fx_zombie_grain_cloud" );
 
 	maps\_waw_zombiemode_radio::init();
@@ -844,4 +847,16 @@ water_burst_overwrite()
 	level waittill("between_round_over");
 	level._effect["rise_burst_water"]		  	= LoadFX("maps/zombie/fx_zombie_body_wtr_burst_smpf");
 	level._effect["rise_billow_water"]			= LoadFX("maps/zombie/fx_zombie_body_wtr_billow_smpf");
+}
+
+spawn_nades_wallbuy()
+{
+    model = Spawn( "script_model", ( 7905, -1529, -636 ) );
+    model.angles = ( 0, 0, 0 );
+    model SetModel( GetWeaponModel( "stielhandgranate" ) );
+    model.targetname = "stielhandgranate";
+    trigger = Spawn( "trigger_radius_use", model.origin, 20, 20, 20 );
+    trigger.targetname = "weapon_upgrade";
+    trigger.target = "stielhandgranate";
+    trigger.zombie_weapon_upgrade = "stielhandgranate";
 }
