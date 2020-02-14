@@ -11,9 +11,9 @@ Call of Duty Black Ops Mod - First Rooms
 
 ## General
 * Round 10 start
-* Points set to 2500
+* Points set to 2000
 * Default fov set to 75
-* Fixed backwards walking speed
+* Fixed backward walking speed
 * Start with quick revive in solo
 
 ### Kino Der Toten
@@ -21,7 +21,7 @@ Call of Duty Black Ops Mod - First Rooms
 * Added grenade wall buy
 
 ### Five
-* Players start second floor by the elevator (steak out)
+* Players start on the second floor by the elevator (steak out)
 * Added grenade wall buy
 * Blocked stairs so you cant go to mulekick side
 
@@ -31,7 +31,7 @@ Call of Duty Black Ops Mod - First Rooms
 * Death machine removed
 
 ### Call of the Dead
-* Players start on second floor of power boat (m16)
+* Players start on the second floor of power boat (m16)
 * Added grenade wall buy
 * Death machine removed
 
@@ -47,7 +47,7 @@ Call of Duty Black Ops Mod - First Rooms
 
 ### Shi No Numa
 * Players start in comm room (stg)
-* Added grenade wallbuy
+* Added grenade wall buy
 
 ### Der Riese
 * Players start in hall way towards jug (trench gun)
