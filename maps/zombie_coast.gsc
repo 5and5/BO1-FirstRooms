@@ -201,7 +201,8 @@ main()
 	// TODO: Get it working then hand off to Laufer so he can transfer it to csc
 	level thread coast_power_on_lighthouse_react();
 
-	level thread coast_spawn_init_delay();
+	// just no
+	//level thread coast_spawn_init_delay();
 
 	level thread maps\zombie_coast_fx:: manage_blizzard();
 
@@ -1361,7 +1362,7 @@ spawn_nades_wallbuy()
     model.angles = ( 0, 90, 0 );
     model SetModel( GetWeaponModel( "sticky_grenade_zm" ) );
     model.targetname = "sticky_grenade_zm";
-    trigger = Spawn( "trigger_radius_use", model.origin, 30, 30, 30d );
+    trigger = Spawn( "trigger_radius_use", model.origin, 30, 30, 30 );
     trigger.targetname = "weapon_upgrade";
     trigger.target = "sticky_grenade_zm";
     trigger.zombie_weapon_upgrade = "sticky_grenade_zm";

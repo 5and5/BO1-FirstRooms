@@ -1969,16 +1969,11 @@ factory_german_safe()
 
 spawn_nades_wallbuy()
 {
-	register_lethal_grenade_for_level( "stielhandgranate" );
-	level.zombie_lethal_grenade_player_init = "stielhandgranate";
-
-	include_weapon( "stielhandgranate", false, true );
-
-    model = Spawn( "script_model", ( 883, -445, 110 ) );
+    model = Spawn( "script_model", ( 802.5, -223, 110 ) );
     model.angles = ( 0, 0, 0 );
     model SetModel( GetWeaponModel( "stielhandgranate" ) );
     model.targetname = "stielhandgranate";
-    trigger = Spawn( "trigger_radius_use", model.origin, 20, 0, 20 );
+    trigger = Spawn( "trigger_radius_use", model.origin, 20, 20, 20 );
     trigger.targetname = "weapon_upgrade";
     trigger.target = "stielhandgranate";
     trigger.zombie_weapon_upgrade = "stielhandgranate";

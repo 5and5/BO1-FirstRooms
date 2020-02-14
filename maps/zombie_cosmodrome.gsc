@@ -421,9 +421,9 @@ include_powerups()
 	include_powerup( "fire_sale" );
 
 	// minigun
-	PreCacheItem( "minigun_zm" );
+	//PreCacheItem( "minigun_zm" );
 
-	include_powerup( "minigun" );
+	//include_powerup( "minigun" );
 	include_powerup( "free_perk" );
 }
 

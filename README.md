@@ -22,14 +22,18 @@ Call of Duty Black Ops Mod - First Rooms
 
 ### Five
 * Players start second floor by the elevator (steak out)
+* Added grenade wall buy
+* Blocked stairs so you cant go to mulekick side
 
 ### Ascension
 * Players start at the lander above PaP (m16)
 * Added grenade wall buy
+* Death machine removed
 
 ### Call of the Dead
 * Players start on second floor of power boat (m16)
 * Added grenade wall buy
+* Death machine removed
 
 ### Shangri-la
 * Players start next to spawn (mpl)
@@ -49,5 +53,9 @@ Call of Duty Black Ops Mod - First Rooms
 * Players start in hall way towards jug (trench gun)
 * Added grenade wall buy
 
-TODO:
-* add kill barrier to five
+## Special thanks to:
+* **_SE2Dev_** - For making LinkerMod
+* **_Nukem_** - For making LinkerMod
+* **_Treyarch_** - For making the best zombie game of all time
+* **_JBird_** - Round 10 start fix
+* **_Clippy95_** - Spawning grenade code

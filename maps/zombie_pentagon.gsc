@@ -41,6 +41,9 @@ main()
 	include_weapons();
 	include_powerups();
 
+	// nades
+	spawn_nades_wallbuy();
+
 	level.use_zombie_heroes = true;
 	level.disable_protips = 1;
 
@@ -81,6 +84,9 @@ main()
 	level thread pentagon_brush_lights_init();
 	level thread zombie_warroom_barricade_fix();
 	level thread barricade_glitch_fix();
+
+	// so players can go to the other side
+	level thread spawn_doubletap_machine();
 
 
 	//bonfire_init
@@ -320,14 +326,14 @@ include_powerups()
 	include_powerup( "insta_kill" );
 	include_powerup( "double_points" );
 	include_powerup( "full_ammo" );
-	include_powerup( "carpenter" );
+	//include_powerup( "carpenter" );
 	include_powerup( "fire_sale" );
 	include_powerup( "bonfire_sale" );
 
 	// minigun
-	PreCacheItem( "minigun_zm" );
+	//PreCacheItem( "minigun_zm" );
 
-	include_powerup( "minigun" );
+	//include_powerup( "minigun" );
 }
 
 //*****************************************************************************
@@ -950,7 +956,40 @@ barricade_glitch_fix()
 	collision4 Hide();
 }
 
-spawn_kill_brushes()
+spawn_doubletap_machine()
 {
-	maps\_zombiemode::spawn_kill_brush( (-1800, 2116, -60), 15, 100 );
+	level.zombie_doubletap_machine_origin = (-1169, 2022, -416);
+	level.zombie_doubletap_machine_angles = (0, 180, 0);
+	level.zombie_doubletap_machine_clip_origin = level.zombie_doubletap_machine_origin + (0, -10, 0);
+	level.zombie_doubletap_machine_clip_angles = (0, 0, 0);
+	level.zombie_doubletap_machine_monkey_angles = (0, 270, 0);
+
+	machine = Spawn( "script_model", level.zombie_doubletap_machine_origin );
+	machine.angles = level.zombie_doubletap_machine_angles;
+	machine setModel( "zombie_vending_doubletap" );
+	machine.targetname = "vending_doubletap";
+
+	machine_trigger = Spawn( "trigger_radius_use", level.zombie_doubletap_machine_origin + (0, 0, 30), 0, 20, 70 );
+	machine_trigger.targetname = "zombie_vending";
+	machine_trigger.target = "vending_doubletap";
+	machine_trigger.script_noteworthy = "specialty_rof";
+
+	machine_clip = spawn( "script_model", level.zombie_doubletap_machine_clip_origin );
+	machine_clip.angles = level.zombie_doubletap_machine_clip_angles;
+	machine_clip setmodel( "collision_geo_64x64x256" );
+	machine_clip Hide();
+}
+
+spawn_nades_wallbuy()
+{
+	// spawn nades
+    model = Spawn( "script_model", ( -1190, 2565, -445 ) );
+    model.angles = ( 0, 0, 0 );
+    model SetModel( GetWeaponModel( "frag_grenade_zm" ) );
+    model.targetname = "frag_grenade_zm";
+    trigger = Spawn( "trigger_radius_use", model.origin, 20, 0, 20 );
+    trigger.targetname = "weapon_upgrade";
+    trigger.target = "frag_grenade_zm";
+    trigger.zombie_weapon_upgrade = "frag_grenade_zm";
+
 }
