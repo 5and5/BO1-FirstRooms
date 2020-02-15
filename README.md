@@ -9,6 +9,10 @@ Call of Duty Black Ops Mod - First Rooms
 
 [Twitter](https://twitter.com/5and55)
 
+## Leaderboards
+
+[Spread Sheet](https://docs.google.com/spreadsheets/d/1eY93xGNydtTuZEoO-EQ-Qwj_ben_gRoHoEOYNFGGhXE/)
+
 ## General
 * Round 10 start
 * Points set to 2000
