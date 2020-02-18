@@ -162,6 +162,10 @@ main()
 
 	level thread maps\zombie_temple_sq::start_temple_sidequest();
 
+	// allows zombies and monkeys to go to spawn
+	level thread remove_blocker();
+	// deletes zombies that spawn up stairs
+	level thread remove_spawn_point_init();
 }
 
 init_client_flags()
@@ -249,8 +253,8 @@ precache_assets()
 
 local_zone_init()
 {
-    flag_init( "always_on" );
-    flag_set( "always_on" );
+    //flag_init( "always_on" );
+    //flag_set( "always_on" );
 
     // mpl
     zone_init( "pressure_plate_zone");
@@ -261,6 +265,11 @@ local_zone_init()
 	enable_zone( "caves2_zone");
 	zone_init( "caves3_zone");
 	enable_zone( "caves3_zone");
+
+	// stakeout
+	zone_init( "caves_water_zone");
+	enable_zone( "caves_water_zone");
+
 
 	// Temple_zone
 	add_adjacent_zone( "temple_start_zone", "pressure_plate_zone", "start_to_pressure" );
@@ -431,7 +440,7 @@ include_powerups()
 	include_powerup( "insta_kill" );
 	include_powerup( "double_points" );
 	include_powerup( "full_ammo" );
-	//include_powerup( "carpenter" );
+	include_powerup( "carpenter" );
 	include_powerup( "fire_sale" );
 	include_powerup( "free_perk" );
 }
@@ -458,7 +467,7 @@ add_powerups_after_round_1()
 			level.zombie_powerup_array = array_add(level.zombie_powerup_array, "fire_sale");
 			break;
 		}
-		wait (1);
+		wait (0.1);
 	}
 }
 
@@ -651,12 +660,17 @@ delete_powerup_fx()
 init_random_perk_machines()
 {
 	randMachines = [];
-	randMachines = _add_machine(randMachines, "vending_jugg", "mus_perks_jugganog_sting", "specialty_armorvest", "mus_perks_jugganog_jingle", "jugg_perk", "zombie_vending_jugg");
-	randMachines = _add_machine(randMachines, "vending_marathon", "mus_perks_stamin_sting", "specialty_longersprint", "mus_perks_stamin_jingle", "marathon_perk", "zombie_vending_marathon");
+/*	randMachines = _add_machine(randMachines, "vending_jugg", "mus_perks_jugganog_sting", "specialty_armorvest", "mus_perks_jugganog_jingle", "jugg_perk", "zombie_vending_jugg");
+	randMachines = _add_machine(randMachines, "vending_marathon", "mus_perks_stamin_sting", "specialty_longersprint", "mus_perks_stamin_jingle", "marathon_perk", "zombie_vending_marathon");*/
 	randMachines = _add_machine(randMachines, "vending_divetonuke", "mus_perks_phd_sting", "specialty_flakjacket", "mus_perks_phd_jingle", "divetonuke_perk", "zombie_vending_nuke");
-	randMachines = _add_machine(randMachines, "vending_deadshot", "mus_perks_deadshot_sting", "specialty_deadshot", "mus_perks_deadshot_jingle", "tap_deadshot", "zombie_vending_ads");
+	randMachines = _add_machine(randMachines, "vending_divetonuke", "mus_perks_phd_sting", "specialty_flakjacket", "mus_perks_phd_jingle", "divetonuke_perk", "zombie_vending_nuke");
+	randMachines = _add_machine(randMachines, "vending_divetonuke", "mus_perks_phd_sting", "specialty_flakjacket", "mus_perks_phd_jingle", "divetonuke_perk", "zombie_vending_nuke");
+	randMachines = _add_machine(randMachines, "vending_divetonuke", "mus_perks_phd_sting", "specialty_flakjacket", "mus_perks_phd_jingle", "divetonuke_perk", "zombie_vending_nuke");
+	randMachines = _add_machine(randMachines, "vending_divetonuke", "mus_perks_phd_sting", "specialty_flakjacket", "mus_perks_phd_jingle", "divetonuke_perk", "zombie_vending_nuke");
+	randMachines = _add_machine(randMachines, "vending_divetonuke", "mus_perks_phd_sting", "specialty_flakjacket", "mus_perks_phd_jingle", "divetonuke_perk", "zombie_vending_nuke");
+/*	randMachines = _add_machine(randMachines, "vending_deadshot", "mus_perks_deadshot_sting", "specialty_deadshot", "mus_perks_deadshot_jingle", "tap_deadshot", "zombie_vending_ads");
 	randMachines = _add_machine(randMachines, "vending_sleight", "mus_perks_speed_sting", "specialty_fastreload", "mus_perks_speed_jingle", "speedcola_perk", "zombie_vending_sleight");
-	randMachines = _add_machine(randMachines, "vending_doubletap", "mus_perks_doubletap_sting", "specialty_rof", "mus_perks_doubletap_jingle", "tap_perk", "zombie_vending_doubletap");
+	randMachines = _add_machine(randMachines, "vending_doubletap", "mus_perks_doubletap_sting", "specialty_rof", "mus_perks_doubletap_jingle", "tap_perk", "zombie_vending_doubletap");*/
 
 	machines = getEntArray("zombie_vending_random","targetname");
 
@@ -1177,4 +1191,152 @@ spawn_nades_wallbuy()
     trigger.targetname = "weapon_upgrade";
     trigger.target = "sticky_grenade_zm";
     trigger.zombie_weapon_upgrade = "sticky_grenade_zm";
+}
+
+remove_blocker()
+{
+	level.geysers = getEntArray("temple_geyser", "targetname");
+
+	for(i=0; i<level.geysers.size; i++)
+	{
+		level.geysers[i].enabled = false;
+		geyserTrigger = level.geysers[i];
+
+		blocker = GetEnt(geyserTrigger.script_noteworthy + "_blocker", "targetname");
+		blocker thread geyser_blocker_removed();
+	}
+}
+
+geyser_blocker_removed()
+{
+	clip = GetEnt(self.target, "targetname");
+	clip Delete();
+
+	struct = spawnstruct();
+	struct.origin = self.origin + (0,0,500);
+	struct.angles = self.angles + (0,180,0);
+
+	self.script_noteworthy = "jiggle";
+	self.script_firefx = "poltergeist";
+	self.script_fxid = "large_ceiling_dust";
+	self maps\_zombiemode_blockers::debris_move( struct );
+}
+
+remove_spawn_point_init()
+{
+	flag_wait( "all_players_connected" );
+
+	// turn on flopper
+	wait_network_frame();
+	level notify("divetonuke_on");
+
+	while(true)
+	{
+		zombies = GetAIArray("axis");
+		if(!IsDefined(zombies))
+		{
+			break;
+		}
+		else
+		{
+			for (i = 0; i < zombies.size; i++)
+			{
+				//NOTE: this thread completes within a couple frames, no danger of it being redudantly added
+				zombies[i] thread delete_zombie(100);
+			}
+		}
+		//check every 1 seconds
+		wait(1);
+	}
+}
+
+delete_zombie(how_close)
+{
+	self endon( "death" );
+
+    // self = zombies
+	dist = Distance(self.origin, (228, -1907, 47) );
+	if(dist < how_close)
+		{
+			IPrintLnBold("deleting zombie");
+			level.zombie_total++;
+
+			self maps\_zombiemode_spawner::reset_attack_spot();
+			//this sends a callback to the client that may fail if we're deleted by the time the client tries to execute it
+			//but if we don't do this, does it leave floating eyes behind?
+			//self maps\_zombiemode_spawner::zombie_eye_glow_stop();
+			self notify("zombie_delete");
+			//self notify("stop_fx");
+			self Delete();
+		}
+}
+
+delete_zombie1(how_close)
+{
+	self endon( "death" );
+
+	if(!IsDefined(how_close))
+	{
+		how_close = 1000;
+	}
+
+	self.inview = 0;
+	self.player_close = 0;
+
+	players = getplayers();
+	for ( i = 0; i < players.size; i++ )
+	{
+		// pass through players in spectator mode.
+		if(players[i].sessionstate == "spectator")
+		{
+			continue;
+		}
+
+		can_be_seen = self player_can_see_me(players[i]);
+		if(can_be_seen)
+		{
+			self.inview++;
+		}
+		else
+		{
+			dist = Distance(self.origin, (228, -1907, 47) ); //players[i].origin);
+			if(dist < how_close)
+			{
+				self.player_close++;
+			}
+		}
+	}
+
+	wait_network_frame();
+	if(self.inview == 0 && self.player_close == 0 )
+	{
+		if(!IsDefined(self.animname) || (IsDefined(self.animname) && self.animname != "zombie"))
+		{
+			return;
+		}
+		if(IsDefined(self.electrified) && self.electrified == true)
+		{
+			return;
+		}
+
+		// zombie took damage, don't touch
+		if( self.health != level.zombie_health )
+		{
+			return;
+		}
+		else
+		{
+
+ 			IPrintLnBold("deleting zombie");
+			level.zombie_total++;
+
+			self maps\_zombiemode_spawner::reset_attack_spot();
+			//this sends a callback to the client that may fail if we're deleted by the time the client tries to execute it
+			//but if we don't do this, does it leave floating eyes behind?
+			//self maps\_zombiemode_spawner::zombie_eye_glow_stop();
+			self notify("zombie_delete");
+			//self notify("stop_fx");
+			self Delete();
+		}
+	}
 }

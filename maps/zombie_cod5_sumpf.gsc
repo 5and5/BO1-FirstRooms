@@ -138,9 +138,18 @@ sumpf_zone_init()
 	flag_init( "always_on" );
 	flag_set( "always_on" );
 
-	// in front of storage
+	// stg
 	maps\_zombiemode_zone_manager::zone_init( "southwest_building");
 	maps\_zombiemode_zone_manager::enable_zone( "southwest_building");
+
+	// type100
+	maps\_zombiemode_zone_manager::zone_init( "southeast_building");
+	maps\_zombiemode_zone_manager::enable_zone( "southeast_building");
+
+	// mp40
+	maps\_zombiemode_zone_manager::zone_init( "northwest_building");
+	maps\_zombiemode_zone_manager::enable_zone( "northwest_building");
+
 
 	maps\_zombiemode_zone_manager::add_adjacent_zone( "center_building_upstairs", "center_building_upstairs_buy", "unlock_hospital_upstairs" );
 	maps\_zombiemode_zone_manager::add_adjacent_zone( "center_building_upstairs", "center_building_combined", "unlock_hospital_downstairs" );
@@ -851,7 +860,8 @@ water_burst_overwrite()
 
 spawn_nades_wallbuy()
 {
-    model = Spawn( "script_model", ( 7905, -1529, -636 ) );
+    //model = Spawn( "script_model", ( 7905, -1529, -636 ) ); //stg
+    model = Spawn( "script_model", ( 12162, -1427, -606 ) );
     model.angles = ( 0, 0, 0 );
     model SetModel( GetWeaponModel( "stielhandgranate" ) );
     model.targetname = "stielhandgranate";

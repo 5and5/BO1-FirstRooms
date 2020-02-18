@@ -962,7 +962,6 @@ spawn_doubletap_machine()
 	level.zombie_doubletap_machine_angles = (0, 180, 0);
 	level.zombie_doubletap_machine_clip_origin = level.zombie_doubletap_machine_origin + (0, -10, 0);
 	level.zombie_doubletap_machine_clip_angles = (0, 0, 0);
-	level.zombie_doubletap_machine_monkey_angles = (0, 270, 0);
 
 	machine = Spawn( "script_model", level.zombie_doubletap_machine_origin );
 	machine.angles = level.zombie_doubletap_machine_angles;

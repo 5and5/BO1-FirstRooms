@@ -9,6 +9,10 @@ Call of Duty Black Ops Mod - First Rooms
 
 [Twitter](https://twitter.com/5and55)
 
+## Leaderboard
+
+[Spread Sheet](https://docs.google.com/spreadsheets/d/1eY93xGNydtTuZEoO-EQ-Qwj_ben_gRoHoEOYNFGGhXE/)
+
 ## General
 * Round 10 start
 * Points set to 2000
@@ -21,7 +25,7 @@ Call of Duty Black Ops Mod - First Rooms
 * Added grenade wall buy
 
 ### Five
-* Players start on the second floor by the elevator (steak out)
+* Players start on the second floor by the elevator (stake out)
 * Added grenade wall buy
 * Blocked stairs so you cant go to mulekick side
 
@@ -36,22 +40,29 @@ Call of Duty Black Ops Mod - First Rooms
 * Death machine removed
 
 ### Shangri-la
-* Players start next to spawn (mpl)
-* Added grenade wall buy
+* Players start under spawn (stakeout)
+* Flopper is allows there and turned up
+* Geyser is not active
 
 ### Nacht Der Untoten
-* Players start top floor (trenchgun + bar)
+* Players start top floor (trench gun + bar)
 
 ### Verruckt
 * Players start in spawn room with the middle door open
 
 ### Shi No Numa
-* Players start in comm room (stg)
+* Players start in fishing hut (mp40)
 * Added grenade wall buy
 
 ### Der Riese
 * Players start in hall way towards jug (trench gun)
 * Added grenade wall buy
+
+## TODO
+* fix ascension stuck spots
+* remove box from cotd
+* remove snn zombie hits
+* move ascension nades
 
 ## Special thanks to:
 * **_SE2Dev_** - For making LinkerMod

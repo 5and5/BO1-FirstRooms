@@ -1683,7 +1683,7 @@ onPlayerSpawned()
 
 
 				// testing only
-				//self thread get_position();
+				self thread get_position();
 
 				// setup game
 				self thread start_game();
@@ -5470,7 +5470,7 @@ coop_player_spawn_placement()
 
 	if (level.script == "zombie_pentagon")
 	{
-		// mpl
+		// stakeout
 		spawn_origin = array((-755, 2654, -511),
 							(-775, 2554, -511),
 							(-795, 2454, -511),
@@ -5526,16 +5526,28 @@ coop_player_spawn_placement()
 
 	if (level.script == "zombie_cod5_sumpf")
 	{
+		/*// type100
+		spawn_originnn = array((12266, -1486, -647), //(13172, -1041, -640), // inforont of storage
+							(12234, -1396, -647),
+							(12234, -1250, -647),
+							(12284, -1133, -647));
+
 		// comms room
-		spawn_origin = array((7695, -867, -680), //(13172, -1041, -640), // inforont of storage
+		spawn_originnn = array((7695, -867, -680),
 							(7777, -956, -680),
 							(7838, -1026, -680),
-							(7933, -1102, -680));
+							(7933, -1102, -680));*/
 
-		spawn_angle = array((0, -93, 0),
-						   (0, -125, 0),
-						   (0, -168, 0),
-						   (0, -83, 0));
+		// fishing hut
+		spawn_origin = array((8473, 2999, -664),
+							(8361, 3086, -664),
+							(8214, 3271, -664),
+							(8257, 3437, -664));
+
+		spawn_angle = array((0, 88, 0),
+						   (0, 74, 0),
+						   (0, 31, 0),
+						   (0, -107, 0));
 	}
 
 	if (level.script == "zombie_coast")
@@ -5554,21 +5566,41 @@ coop_player_spawn_placement()
 
 	if (level.script == "zombie_temple")
 	{
-		// mpl
-		spawn_origin = array((1363, -1290, -163),
+/*		// mpl
+		spawn_originn = array((1363, -1290, -163),
 							(1377, -1371, -165),
 							(1514, -1024, 17),
 							(1547, -825, 17));
 
-		spawn_angle = array((0, -126, 0),
+		// mpl
+		spawn_angle_ = array((0, -126, 0),
 						   (0, -165, 0),
 						   (0, -167, 0),
 						   (0, 139, 0));
+
+		// m16
+		spawn_originnn = array((615, -584, -407),
+							(875, -576, -407),
+							(196, -1383, -407),
+							(338, -1664, -407));*/
+
+		// stakeout
+		spawn_origin = array((-980, -1311, -470),
+							(-1051, -1158, -470),
+							(-647, -1500, -415),
+							(-561, -1019, -415));
+
+		// stakeout
+		spawn_angle = array((0, 23, 0),
+						   (0, -9, 0),
+						   (0, 65, 0),
+						   (0, -64, 0));
+
 	}
 
 	if (level.script == "zombie_cosmodrome")
 	{
-		// steak out
+		// m16
 		spawn_origin = array((1728, 1411, 343),
 							 (1787, 1343, 343),
 							 (1843, 1279, 343),
@@ -5580,9 +5612,16 @@ coop_player_spawn_placement()
 						    (0, -172, 0));
 	}
 
+
 	players = get_players();
 	for( i = 0; i < players.size; i++ )
 	{
+		if (level.script == "zombie_moon")
+		{
+			spawn_origin[i] = structs[i].origin;
+			spawn_angle[i] = structs[i].angles;
+		}
+
 		players[i] setorigin( spawn_origin[i] ); //structs[i].origin
 		players[i] setplayerangles( spawn_angle[i] );
 		players[i].spectator_respawn = structs[i];
