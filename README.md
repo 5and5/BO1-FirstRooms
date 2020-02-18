@@ -28,6 +28,8 @@ Play 7 new First Room Challenges
 * Reduced throw time from 0.4s to 0.2s
 * Buffed damage from 600 to 650
 
+## Maps
+
 ### Kino Der Toten
 * Players start in the dressing room (mp5)
 * Added grenade wall buy
@@ -40,16 +42,17 @@ Play 7 new First Room Challenges
 ### Ascension
 * Players start at the lander above PaP (m16)
 * Added grenade wall buy
-* Death machine removed
+* Death machines removed
 
 ### Call of the Dead
 * Players start on the second floor of power boat (m16)
 * Added grenade wall buy
-* Death machine removed
+* Death machines removed
 
 ### Shangri-la
 * Players start in rooom under spawn (stakeout)
-* Flopper is allows there and turned up
+* Added grenade wall buy
+* Perk bottles always give jug first then flopper
 * Geyser is not active
 
 ### Nacht Der Untoten
@@ -67,14 +70,12 @@ Play 7 new First Room Challenges
 * Added grenade wall buy
 
 ## TODO
-* fix ascension stuck spots
 * remove snn zombie hits
 * test hell room kino
 
 
 ## Special thanks to:
-* **_SE2Dev_** - For making LinkerMod
-* **_Nukem_** - For making LinkerMod
+* **_SE2Dev_** - For making game_mod
+* **_Nukem_** - For making game_mod
 * **_Treyarch_** - For making the best zombie game of all time
 * **_JBird_** - Round 10 start fix
-* **_Clippy95_** - Spawning grenade code

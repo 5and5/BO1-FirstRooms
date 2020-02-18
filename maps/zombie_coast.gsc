@@ -99,7 +99,7 @@ main()
 
 	// Special zombie types, director.
 	level.custom_ai_type = [];
-	//level.custom_ai_type = array_add( level.custom_ai_type, maps\_zombiemode_ai_dogs::init );
+	level.custom_ai_type = array_add( level.custom_ai_type, maps\_zombiemode_ai_dogs::init );
 	level.custom_ai_type = array_add( level.custom_ai_type, maps\_zombiemode_ai_director::init );
 	level.custom_ai_type = array_add( level.custom_ai_type, maps\_zombiemode_ai_faller::faller_init );
 
@@ -174,7 +174,7 @@ main()
 
 	//VisionSetNaked( "zombie_coast_2", 6 );
 
-	level thread maps\zombie_coast_ai_director::coast_director_start();
+	//level thread maps\zombie_coast_ai_director::coast_director_start();
 
 	// WW (02/17/11) - Introscreen fade
 	level thread coast_fade_in_notify();
@@ -215,7 +215,7 @@ main()
 	}
 
 	level thread maps\zombie_coast_ffotd::main_end();
-	level thread check_to_set_play_outro_movie();
+	//level thread check_to_set_play_outro_movie();
 }
 
 check_to_set_play_outro_movie()
@@ -224,12 +224,17 @@ check_to_set_play_outro_movie()
 
 	if ( !level.onlineGame && !level.systemlink )
 	{
-		//SetDvar("ui_playCoastOutroMovie", 1);
+		SetDvar("ui_playCoastOutroMovie", 1);
 	}
 }
 
 zombie_coast_player_out_of_playable_area_monitor_callback()
 {
+	if ( is_true( self._being_flung ) || is_true( self.is_ziplining ) )
+	{
+		return false;
+	}
+
 	return false;
 }
 
@@ -298,9 +303,21 @@ coast_zone_init()
 	flag_init( "always_on" );
 	flag_set( "always_on" );
 
-	// stam
+	// m16
 	zone_init( "shipback_near2_zone");
 	enable_zone( "shipback_near2_zone");
+
+	// mpl
+	zone_init( "shipback_near_zone");
+	enable_zone( "shipback_near_zone");
+
+	// doubletap
+	zone_init( "shipback_far_zone");
+	enable_zone( "shipback_far_zone");
+
+	// mulekick
+	zone_init( "shipfront_far_zone");
+	enable_zone( "shipfront_far_zone");
 
 	// Start now in lighthouse, lighthouse1_zone
 
@@ -1355,11 +1372,11 @@ spawn_nades_wallbuy()
 	// spawn nades
     model = Spawn( "script_model", ( -1082, -1078, 530 ) );
     model.angles = ( 0, 90, 0 );
-    model SetModel( GetWeaponModel( "sticky_grenade_zm" ) );
-    model.targetname = "sticky_grenade_zm";
+    model SetModel( GetWeaponModel( "frag_grenade_zm" ) );
+    model.targetname = "frag_grenade_zm";
     trigger = Spawn( "trigger_radius_use", model.origin, 30, 30, 30 );
     trigger.targetname = "weapon_upgrade";
-    trigger.target = "sticky_grenade_zm";
-    trigger.zombie_weapon_upgrade = "sticky_grenade_zm";
+    trigger.target = "frag_grenade_zm";
+    trigger.zombie_weapon_upgrade = "frag_grenade_zm";
 
 }

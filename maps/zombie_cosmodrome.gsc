@@ -149,6 +149,8 @@ main()
 	init_sounds();
 
 	level thread maps\zombie_cosmodrome_ffotd::main_end();
+
+	level thread curbs_fix();
 }
 
 
@@ -921,7 +923,7 @@ cosmodrome_fade_in_notify()
 	level waittill("fade_in_complete");
 
 	// notify client -- "Zombie Introscreen Done"
-	level ClientNotify( "ZID" );
+	//level ClientNotify( "ZID" );
 
 	wait_network_frame();
 }
@@ -938,4 +940,12 @@ spawn_nades_wallbuy()
     trigger.target = "frag_grenade_zm";
     trigger.zombie_weapon_upgrade = "frag_grenade_zm";
 
+}
+
+curbs_fix()
+{
+	collision = spawn("script_model", (1593, 1040, 340));
+	collision setmodel("collision_geo_32x32x32");
+	collision.angles = (0, 0, 0);
+	collision Hide();
 }

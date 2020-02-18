@@ -323,7 +323,7 @@ local_zone_init()
 //*****************************************************************************
 include_weapons()
 {
-	include_weapon( "frag_grenade_zm", false );
+	include_weapon( "frag_grenade_zm", false, true);
 	include_weapon( "sticky_grenade_zm", false, true );
 	include_weapon( "spikemore_zm", false, true );
 
@@ -1183,14 +1183,14 @@ temple_revive_solo_fx()
 spawn_nades_wallbuy()
 {
 	// spawn nades
-    model = Spawn( "script_model", ( 1378, -779, 59.5 ) );
-    model.angles = ( 0, 0, 0 );
-    model SetModel( GetWeaponModel( "sticky_grenade_zm" ) );
-    model.targetname = "sticky_grenade_zm";
-    trigger = Spawn( "trigger_radius_use", model.origin, 30, 30, 30 );
+    model = Spawn( "script_model", ( -166, -1075, -330 ) );
+    model.angles = ( 0, 180, 0 );
+    model SetModel( GetWeaponModel( "frag_grenade_zm" ) );
+    model.targetname = "frag_grenade_zm";
+    trigger = Spawn( "trigger_radius_use", model.origin, 20, 20, 20 );
     trigger.targetname = "weapon_upgrade";
-    trigger.target = "sticky_grenade_zm";
-    trigger.zombie_weapon_upgrade = "sticky_grenade_zm";
+    trigger.target = "frag_grenade_zm";
+    trigger.zombie_weapon_upgrade = "frag_grenade_zm";
 }
 
 remove_blocker()
