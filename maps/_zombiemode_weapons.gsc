@@ -269,6 +269,7 @@ init_weapons()
 	add_zombie_weapon( "hk21_zm",					"hk21_upgraded_zm",						&"ZOMBIE_WEAPON_HK21",					50,		"mg",				"",		undefined );
 
 	// Grenades
+	add_zombie_weapon( "stielhandgranate", "", 						&"WAW_ZOMBIE_WEAPON_STIELHANDGRANATE_250", 		250,	"grenade", "", 250 );
 	add_zombie_weapon( "frag_grenade_zm", 			undefined,								&"ZOMBIE_WEAPON_FRAG_GRENADE",			250,	"grenade",			"",		undefined );
 	add_zombie_weapon( "sticky_grenade_zm", 		undefined,								&"ZOMBIE_WEAPON_STICKY_GRENADE",		250,	"grenade",			"",		undefined );
 	add_zombie_weapon( "claymore_zm", 				undefined,								&"ZOMBIE_WEAPON_CLAYMORE",				1000,	"grenade",			"",		undefined );
@@ -865,7 +866,22 @@ init_starting_chest_location()
 		                level.chests[i] hide_chest();
 		                }
 		        }
-		if( isdefined( level.random_pandora_box_start ) && level.random_pandora_box_start == true )
+
+		else if(level.script == "zombie_coast")
+            {
+                if(IsSubStr(level.chests[i].script_noteworthy, "residence_chest" ))
+                    {
+                        level.chest_index = i;
+                        level.chests[level.chest_index] hide_rubble();
+                        level.chests[level.chest_index].hidden = false;
+                    }
+                    else
+                    {
+                        level.chests[i] hide_chest();
+                    }
+            }
+
+		else if( isdefined( level.random_pandora_box_start ) && level.random_pandora_box_start == true )
 		{
 			if ( start_chest_found || (IsDefined( level.chests[i].start_exclude ) && level.chests[i].start_exclude == 1) )
 			{

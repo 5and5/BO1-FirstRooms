@@ -74,9 +74,8 @@ main()
 	include_weapons();
 	include_powerups();
 
-	spawn_nades_wallbuy();
 	// nades
-	//level.register_offhand_weapons_for_level_defaults_override = ::theater_offhand_weapons_for_level_defaults_override;
+	spawn_nades_wallbuy();
 
 	level.use_zombie_heroes = true;
 	level.disable_protips = 1;
@@ -265,26 +264,9 @@ include_weapons()
 	precacheItem( "explosive_bolt_zm" );
 	precacheItem( "explosive_bolt_upgraded_zm" );
 
-
-
-	// nades
-	include_weapon( "stielhandgranate", false, true );
-	include_weapon( "sticky_grenade_zm", false, true );
-
-	//maps\_zombiemode_weapons::add_zombie_weapon( "stielhandgranate", "", 						&"WAW_ZOMBIE_WEAPON_STIELHANDGRANATE_250", 		250,	"grenade", "", 250 );
-
-
 	// get the bowie into the collector achievement list
 	level.collector_achievement_weapons = array_add( level.collector_achievement_weapons, "bowie_knife_zm" );
 
-}
-
-theater_offhand_weapons_for_level_defaults_override()
-{   // nades
-	register_lethal_grenade_for_level( "sticky_grenade_zm" );
-	register_lethal_grenade_for_level( "stielhandgranate" );
-	register_lethal_grenade_for_level( "frag_grenade_zm" );
-	level.zombie_lethal_grenade_player_init = "frag_grenade_zm";
 }
 
 //*****************************************************************************
@@ -455,6 +437,10 @@ theater_zone_init()
 	// activate mp5 zone
 	zone_init( "dressing_zone");
 	enable_zone( "dressing_zone");
+
+	// hell room
+	zone_init( "west_balcony_zone");
+	enable_zone( "west_balcony_zone");
 
 
 	flag_init( "always_on" );

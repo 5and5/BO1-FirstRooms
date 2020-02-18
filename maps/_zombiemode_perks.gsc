@@ -1899,7 +1899,7 @@ perk_give_bottle_end( gun, perk )
 	weapon = "";
 	switch( perk )
 	{
-	case "specialty_rof_upgrade":
+	case "zmb_laugh_child_rof_upgrade":
 	case "specialty_rof":
 		weapon = "zombie_perk_bottle_doubletap";
 		break;
@@ -1992,6 +1992,13 @@ give_random_perk()
 	if ( !self HasPerk( "specialty_armorvest" ) )
 	{
 		self give_perk( "specialty_armorvest" );
+		return;
+	}
+
+	// give flopper next
+	if ( !self HasPerk( "specialty_flakjacket" ) )
+	{
+		self give_perk( "specialty_flakjacket" );
 		return;
 	}
 

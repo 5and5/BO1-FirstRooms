@@ -1227,8 +1227,8 @@ remove_spawn_point_init()
 	flag_wait( "all_players_connected" );
 
 	// turn on flopper
-	wait_network_frame();
-	level notify("divetonuke_on");
+	//wait_network_frame();
+	//level notify("divetonuke_on");
 
 	while(true)
 	{
@@ -1246,7 +1246,7 @@ remove_spawn_point_init()
 			}
 		}
 		//check every 1 seconds
-		wait(1);
+		wait(0.1);
 	}
 }
 
@@ -1258,7 +1258,7 @@ delete_zombie(how_close)
 	dist = Distance(self.origin, (228, -1907, 47) );
 	if(dist < how_close)
 		{
-			IPrintLnBold("deleting zombie");
+			//IPrintLnBold("deleting zombie");
 			level.zombie_total++;
 
 			self maps\_zombiemode_spawner::reset_attack_spot();
@@ -1271,72 +1271,3 @@ delete_zombie(how_close)
 		}
 }
 
-delete_zombie1(how_close)
-{
-	self endon( "death" );
-
-	if(!IsDefined(how_close))
-	{
-		how_close = 1000;
-	}
-
-	self.inview = 0;
-	self.player_close = 0;
-
-	players = getplayers();
-	for ( i = 0; i < players.size; i++ )
-	{
-		// pass through players in spectator mode.
-		if(players[i].sessionstate == "spectator")
-		{
-			continue;
-		}
-
-		can_be_seen = self player_can_see_me(players[i]);
-		if(can_be_seen)
-		{
-			self.inview++;
-		}
-		else
-		{
-			dist = Distance(self.origin, (228, -1907, 47) ); //players[i].origin);
-			if(dist < how_close)
-			{
-				self.player_close++;
-			}
-		}
-	}
-
-	wait_network_frame();
-	if(self.inview == 0 && self.player_close == 0 )
-	{
-		if(!IsDefined(self.animname) || (IsDefined(self.animname) && self.animname != "zombie"))
-		{
-			return;
-		}
-		if(IsDefined(self.electrified) && self.electrified == true)
-		{
-			return;
-		}
-
-		// zombie took damage, don't touch
-		if( self.health != level.zombie_health )
-		{
-			return;
-		}
-		else
-		{
-
- 			IPrintLnBold("deleting zombie");
-			level.zombie_total++;
-
-			self maps\_zombiemode_spawner::reset_attack_spot();
-			//this sends a callback to the client that may fail if we're deleted by the time the client tries to execute it
-			//but if we don't do this, does it leave floating eyes behind?
-			//self maps\_zombiemode_spawner::zombie_eye_glow_stop();
-			self notify("zombie_delete");
-			//self notify("stop_fx");
-			self Delete();
-		}
-	}
-}

@@ -248,7 +248,7 @@ player_set_viewmodel_override( entity_num )
 register_offhand_weapons_for_level_defaults_override()
 {
 	register_lethal_grenade_for_level( "stielhandgranate" );
-	level.zombie_lethal_grenade_player_init = "stielhandgranate";
+	level.zombie_lethal_grenade_player_init = "frag_grenade_zm";
 
 	register_tactical_grenade_for_level( "zombie_cymbal_monkey" );
 	level.zombie_tactical_grenade_player_init = undefined;
@@ -305,8 +305,11 @@ include_weapons()
 	include_weapon( "mp40_zm", false, true );
 	include_weapon( "zombie_type100_smg", false, true );
 
+	// Grenades
+	include_weapon( "frag_grenade_zm", false, true );
 	include_weapon( "stielhandgranate", false, true );
 
+	// Shot gun
 	include_weapon( "zombie_shotgun", false, true );
 
 	// Heavy MG
@@ -861,12 +864,14 @@ water_burst_overwrite()
 spawn_nades_wallbuy()
 {
     //model = Spawn( "script_model", ( 7905, -1529, -636 ) ); //stg
-    model = Spawn( "script_model", ( 12162, -1427, -606 ) );
-    model.angles = ( 0, 0, 0 );
-    model SetModel( GetWeaponModel( "stielhandgranate" ) );
-    model.targetname = "stielhandgranate";
+    //model = Spawn( "script_model", ( 12162, -1427, -606 ) ); //type100
+    model = Spawn( "script_model", ( 8288, 3552, -615 ) ); //mp40 juju
+    //model = Spawn( "script_model", ( 8733, 3133, -615 ) );
+    model.angles = ( 0, 90, 0 );
+    model SetModel( GetWeaponModel( "frag_grenade_zm" ) );
+    model.targetname = "frag_grenade_zm";
     trigger = Spawn( "trigger_radius_use", model.origin, 20, 20, 20 );
     trigger.targetname = "weapon_upgrade";
-    trigger.target = "stielhandgranate";
-    trigger.zombie_weapon_upgrade = "stielhandgranate";
+    trigger.target = "frag_grenade_zm";
+    trigger.zombie_weapon_upgrade = "frag_grenade_zm";
 }

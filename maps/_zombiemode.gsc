@@ -1797,7 +1797,7 @@ player_out_of_playable_area_monitor()
 	level endon( "end_game" );
 
 	// load balancing
-	wait( (0.15 * self GetEntityNumber()) );
+	/*wait( (0.15 * self GetEntityNumber()) );
 
 	while ( true )
 	{
@@ -1822,11 +1822,11 @@ player_out_of_playable_area_monitor()
 #/
  				if( is_true( level.player_4_vox_override ) )
 				{
-					self playlocalsound( "zmb_laugh_rich" );
+					//self playlocalsound( "zmb_laugh_rich" );
 				}
 				else
 				{
-					self playlocalsound( "zmb_laugh_child" );
+					//self playlocalsound( "zmb_laugh_child" );
 				}
 
 				wait( 0.5 );
@@ -1845,7 +1845,7 @@ player_out_of_playable_area_monitor()
 		}
 
 		wait( get_player_out_of_playable_area_monitor_wait_time() );
-	}
+	}*/
 }
 
 
@@ -1883,7 +1883,7 @@ player_too_many_weapons_monitor_takeaway_simultaneous( primary_weapons_to_take )
 
 player_too_many_weapons_monitor_takeaway_sequence( primary_weapons_to_take )
 {
-	self thread player_too_many_weapons_monitor_takeaway_simultaneous( primary_weapons_to_take );
+	/*self thread player_too_many_weapons_monitor_takeaway_simultaneous( primary_weapons_to_take );
 
 	self endon( "player_downed" );
 	self endon( "replace_weapon_powerup" );
@@ -1922,7 +1922,7 @@ player_too_many_weapons_monitor_takeaway_sequence( primary_weapons_to_take )
 	self SwitchToWeapon( "m1911_zm" );
 	self decrement_is_drinking();
 
-	self notify( "player_too_many_weapons_monitor_takeaway_sequence_done" );
+	self notify( "player_too_many_weapons_monitor_takeaway_sequence_done" );*/
 }
 
 
@@ -1933,7 +1933,7 @@ player_too_many_weapons_monitor()
 	self endon( "disconnect" );
 	level endon( "end_game" );
 
-	// load balancing
+	/*// load balancing
 	wait( (0.15 * self GetEntityNumber()) );
 
 	while ( true )
@@ -1978,7 +1978,7 @@ player_too_many_weapons_monitor()
 		}
 
 		wait( get_player_too_many_weapons_monitor_wait_time() );
-	}
+	}*/
 }
 
 
@@ -5544,7 +5544,7 @@ coop_player_spawn_placement()
 							(8214, 3271, -664),
 							(8257, 3437, -664));
 
-		spawn_angle = array((0, 88, 0),
+		spawn_angle = array((0, 74, 0),
 						   (0, 74, 0),
 						   (0, 31, 0),
 						   (0, -107, 0));

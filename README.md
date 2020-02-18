@@ -1,5 +1,6 @@
 # First Rooms
 Call of Duty Black Ops Mod - First Rooms
+Play 7 new First Room Challenges
 
 ## Created by: 5and5
 
@@ -22,12 +23,17 @@ Call of Duty Black Ops Mod - First Rooms
 * Fixed backward walking speed
 * Start with quick revive in solo
 
+## Grenades
+* Changed frag grenades to stielhandgranate (waw grenades)
+* Reduced throw time from 0.4s to 0.2s
+* Buffed damage from 600 to 650
+
 ### Kino Der Toten
 * Players start in the dressing room (mp5)
 * Added grenade wall buy
 
 ### Five
-* Players start on the second floor by the elevator (stake out)
+* Players start on the second floor by the elevator (stakeout)
 * Added grenade wall buy
 * Blocked stairs so you cant go to mulekick side
 
@@ -42,7 +48,7 @@ Call of Duty Black Ops Mod - First Rooms
 * Death machine removed
 
 ### Shangri-la
-* Players start under spawn (stakeout)
+* Players start in rooom under spawn (stakeout)
 * Flopper is allows there and turned up
 * Geyser is not active
 
@@ -62,9 +68,9 @@ Call of Duty Black Ops Mod - First Rooms
 
 ## TODO
 * fix ascension stuck spots
-* remove box from cotd
 * remove snn zombie hits
-* move ascension nades
+* test hell room kino
+
 
 ## Special thanks to:
 * **_SE2Dev_** - For making LinkerMod

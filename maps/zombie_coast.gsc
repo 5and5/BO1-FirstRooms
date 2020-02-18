@@ -224,17 +224,12 @@ check_to_set_play_outro_movie()
 
 	if ( !level.onlineGame && !level.systemlink )
 	{
-		SetDvar("ui_playCoastOutroMovie", 1);
+		//SetDvar("ui_playCoastOutroMovie", 1);
 	}
 }
 
 zombie_coast_player_out_of_playable_area_monitor_callback()
 {
-	if ( is_true( self._being_flung ) || is_true( self.is_ziplining ) )
-	{
-		return false;
-	}
-
 	return false;
 }
 
@@ -532,7 +527,7 @@ coast_offhand_weapon_overrride()
 {
 	register_lethal_grenade_for_level( "frag_grenade_zm" );
 	register_lethal_grenade_for_level( "sticky_grenade_zm" );
-	level.zombie_lethal_grenade_player_init = "sticky_grenade_zm";
+	level.zombie_lethal_grenade_player_init = "frag_grenade_zm";
 
 	register_tactical_grenade_for_level( "zombie_nesting_dolls" );
 	level.zombie_tactical_grenade_player_init = undefined;
@@ -608,8 +603,8 @@ include_powerups()
 	include_powerup( "fire_sale" );
 
 	// WW (02-04-11): Added minigun
-	PreCacheItem( "minigun_zm" );
-	include_powerup( "minigun" );
+	//PreCacheItem( "minigun_zm" );
+	//include_powerup( "minigun" );
 
 	// WW (03-14-11): Added Tesla
 	PreCacheItem( "tesla_gun_zm" );
