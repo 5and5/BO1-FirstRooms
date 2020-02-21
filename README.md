@@ -24,9 +24,12 @@ Play 7 new First Room Challenges
 * Start with quick revive in solo
 
 ## Grenades
-* Changed frag grenades to stielhandgranate (waw grenades)
+### Frag Grenade
+* Buffed damage from 300 to 600 (same as stielhandgranate)
+* Reduced throw time from 0.6s to 0.2s
+
+### Stielhandgranate
 * Reduced throw time from 0.4s to 0.2s
-* Buffed damage from 600 to 650
 
 ## Maps
 
@@ -47,19 +50,22 @@ Play 7 new First Room Challenges
 ### Call of the Dead
 * Players start on the second floor of power boat (m16)
 * Added grenade wall buy
-* Death machines removed
+* Removed death machines
+* Removed George
 
 ### Shangri-la
 * Players start in rooom under spawn (stakeout)
 * Added grenade wall buy
-* Perk bottles always give jug first then flopper
+* Perk bottle is always after the 3rd drop
+* Perk bottle always give jug first, flopper second
 * Geyser is not active
 
 ### Nacht Der Untoten
-* Players start top floor (trench gun + bar)
+* Players start on the top floor (trench gun + bar)
 
 ### Verruckt
-* Players start in spawn room with the middle door open
+* Players start in the speed cola trap room (trench gun + bar)
+* Trap is activatable
 
 ### Shi No Numa
 * Players start in fishing hut (mp40)
@@ -69,9 +75,9 @@ Play 7 new First Room Challenges
 * Players start in hall way towards jug (trench gun)
 * Added grenade wall buy
 
-## TODO
-* remove snn zombie hits
-* test hell room kino
+## Possible updates
+* Moon first room with gravity
+* Kino changed to room above alley
 
 
 ## Special thanks to:

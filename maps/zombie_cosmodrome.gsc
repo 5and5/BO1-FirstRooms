@@ -939,7 +939,6 @@ spawn_nades_wallbuy()
     trigger.targetname = "weapon_upgrade";
     trigger.target = "frag_grenade_zm";
     trigger.zombie_weapon_upgrade = "frag_grenade_zm";
-
 }
 
 curbs_fix()

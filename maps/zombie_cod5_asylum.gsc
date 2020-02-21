@@ -71,7 +71,7 @@ main()
 
 	maps\_waw_zombiemode_radio::init();
 
-	level.Player_Spawn_func = ::spawn_point_override;
+	//level.Player_Spawn_func = ::spawn_point_override;
 	level.zombiemode_precache_player_model_override = ::precache_player_model_override;
 	level.zombiemode_give_player_model_override = ::give_player_model_override;
 	level.zombiemode_player_set_viewmodel_override = ::player_set_viewmodel_override;
@@ -133,6 +133,9 @@ asylum_zone_init()
 	flag_init( "always_on" );
 	flag_set( "always_on" );
 
+	// activate trap zone
+	zone_init( "north_upstairs_zone");
+	enable_zone( "north_upstairs_zone");
 
 	add_adjacent_zone( "west_downstairs_zone", "west2_downstairs_zone", "power_on" );
 
@@ -318,7 +321,7 @@ intro_screen()
 	}
 
 	flag_set("power_on");
-	//electric_current_open_middle_door();
+	electric_current_open_middle_door();
 	level thread magic_box_limit_location_init();
 
 }
@@ -1096,36 +1099,20 @@ disable_bump_trigger(triggername)
 //-------------------------------------------------------------------------------
 master_electric_switch()
 {
+	flag_wait("all_players_spawned");
 
-	trig = getent("use_master_switch","targetname");
+	//trig = getent("use_master_switch","targetname");
 	master_switch = getent("master_switch","targetname");
 	master_switch notsolid();
 	//master_switch rotatepitch(90,1);
-	trig sethintstring(&"WAW_ZOMBIE_ELECTRIC_SWITCH");
-	trig SetCursorHint( "HINT_NOICON" );
+	//trig sethintstring(&"WAW_ZOMBIE_ELECTRIC_SWITCH");
+	//trig SetCursorHint( "HINT_NOICON" );
 
 	//turn off the buyable door triggers downstairs
 	fx_org = spawn("script_model", (-674.922, -300.473, 284.125));
 	fx_org setmodel("tag_origin");
 	fx_org.angles = (0, 90, 0);
 	playfxontag(level._effect["electric_power_gen_idle"], fx_org, "tag_origin");
-
-
-
-	cheat = false;
-
-/#
-	if( GetDvarInt( "zombie_cheat" ) >= 3 )
-	{
-		wait( 5 );
-		cheat = true;
-	}
-#/
-
-	if ( cheat != true )
-	{
-		trig waittill("trigger",user);
-	}
 
 	master_switch rotateroll(-90,.3);
 
@@ -1178,7 +1165,7 @@ master_electric_switch()
 	level thread play_pa_system();
 
 	flag_set("electric_switch_used");
-	trig delete();
+	//trig delete();
 
 	//enable the electric traps
 	traps = getentarray("gas_access","targetname");

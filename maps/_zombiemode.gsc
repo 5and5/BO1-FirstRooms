@@ -1683,7 +1683,7 @@ onPlayerSpawned()
 
 
 				// testing only
-				self thread get_position();
+				//self thread get_position();
 
 				// setup game
 				self thread start_game();
@@ -5463,7 +5463,7 @@ coop_player_spawn_placement()
 							(1157,1210,15));
 
 		spawn_angle = array((0, 123, 0),
-						   (0, 172, 0),
+						   (0, 150, 0),
 						   (0, -153, 0),
 						   (0, -148, 0));
 	}
@@ -5496,18 +5496,30 @@ coop_player_spawn_placement()
 						   (0, 26, 0));
 	}
 
-	if (level.script == "zombie_cod5_asylumm")
+	if (level.script == "zombie_cod5_asylum")
 	{
-		// top floor
-		spawn_origin = array((-364, 546, 226),
+		// speed
+		spawn_originnn = array((-364, 546, 226),
 							(-343, 583, 226),
 							(-345, 668, 226),
 							(-391, 809, 226));
 
-		spawn_angle = array((0, 150, 0),
+		spawn_anglenn = array((0, 150, 0),
 						   (0, 165, 0),
 						   (0, -170, 0),
 						   (0, -172, 0));
+
+		// trap room
+		spawn_origin = array((440, 864, 237),
+							(340, 864, 237),
+							(240, 864, 237),
+							(140, 864, 237));
+
+		// trap room
+		spawn_angle = array((0, -130, 0),
+						   (0, -130, 0),
+						   (0, -130, 0),
+						   (0, -130, 0));
 	}
 
 	if (level.script == "zombie_cod5_factory")
@@ -6782,7 +6794,6 @@ get_position()
 	while(1)
 	{
 		//iprintln(level.zombie_vars["zombie_spawn_delay"]);
-
 		iprintln(player.origin);
 		iprintln(player.angles);
 		wait .5;

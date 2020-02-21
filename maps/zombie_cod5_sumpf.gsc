@@ -60,7 +60,7 @@ main()
 
 	// bring over the custom anims for the japanese zombies
 	level.custom_ai_type = [];
-	level.custom_ai_type = array_add( level.custom_ai_type, maps\_waw_zombiemode_ai_japanese::init );
+	//level.custom_ai_type = array_add( level.custom_ai_type, maps\_waw_zombiemode_ai_japanese::init );
 	level.custom_ai_type = array_add( level.custom_ai_type, maps\_zombiemode_ai_dogs::init );
 
 	maps\_zombiemode_ai_dogs::enable_dog_rounds();
@@ -868,10 +868,10 @@ spawn_nades_wallbuy()
     model = Spawn( "script_model", ( 8288, 3552, -615 ) ); //mp40 juju
     //model = Spawn( "script_model", ( 8733, 3133, -615 ) );
     model.angles = ( 0, 90, 0 );
-    model SetModel( GetWeaponModel( "frag_grenade_zm" ) );
-    model.targetname = "frag_grenade_zm";
+    model SetModel( GetWeaponModel( "stielhandgranate" ) );
+    model.targetname = "stielhandgranate";
     trigger = Spawn( "trigger_radius_use", model.origin, 20, 20, 20 );
     trigger.targetname = "weapon_upgrade";
-    trigger.target = "frag_grenade_zm";
-    trigger.zombie_weapon_upgrade = "frag_grenade_zm";
+    trigger.target = "stielhandgranate";
+    trigger.zombie_weapon_upgrade = "stielhandgranate";
 }

@@ -74,6 +74,7 @@ main()
 	include_powerups();
 	// nades
 	spawn_nades_wallbuy();
+	level thread curbs_fix();
 
 	level._effect["zombie_grain"]			= LoadFx( "misc/fx_zombie_grain_cloud" );
 
@@ -381,6 +382,7 @@ intro_screen()
 	{
 		level.intro_hud[i] destroy();
 	}
+
 }
 
 
@@ -1970,11 +1972,19 @@ factory_german_safe()
 spawn_nades_wallbuy()
 {
     model = Spawn( "script_model", ( 802.5, -223, 110 ) );
-    model.angles = ( 0, 0, 0 );
-    model SetModel( GetWeaponModel( "frag_grenade_zm" ) );
-    model.targetname = "frag_grenade_zm";
+    model.angles = ( 0, 90, 0 );
+    model SetModel( GetWeaponModel( "stielhandgranate" ) );
+    model.targetname = "stielhandgranate";
     trigger = Spawn( "trigger_radius_use", model.origin, 20, 20, 20 );
     trigger.targetname = "weapon_upgrade";
-    trigger.target = "frag_grenade_zm";
-    trigger.zombie_weapon_upgrade = "frag_grenade_zm";
+    trigger.target = "stielhandgranate";
+    trigger.zombie_weapon_upgrade = "stielhandgranate";
+}
+
+curbs_fix()
+{
+	collision = spawn("script_model", (630, -453, 90) );
+	collision setmodel("collision_geo_64x64x64");
+	collision.angles = (0, 0, 0);
+	collision Hide();
 }
