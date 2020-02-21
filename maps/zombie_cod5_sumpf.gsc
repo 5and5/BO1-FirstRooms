@@ -248,7 +248,7 @@ player_set_viewmodel_override( entity_num )
 register_offhand_weapons_for_level_defaults_override()
 {
 	register_lethal_grenade_for_level( "stielhandgranate" );
-	level.zombie_lethal_grenade_player_init = "frag_grenade_zm";
+	level.zombie_lethal_grenade_player_init = "stielhandgranate";
 
 	register_tactical_grenade_for_level( "zombie_cymbal_monkey" );
 	level.zombie_tactical_grenade_player_init = undefined;

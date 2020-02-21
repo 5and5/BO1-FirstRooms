@@ -1,6 +1,5 @@
 # First Rooms
-Call of Duty Black Ops Mod - First Rooms
-Play 7 new First Room Challenges
+Call of Duty Black Ops Mod - Play 7 new First Room Challenges
 
 ## Created by: 5and5
 
@@ -57,7 +56,7 @@ Play 7 new First Room Challenges
 * Players start in rooom under spawn (stakeout)
 * Added grenade wall buy
 * Perk bottle is always after the 3rd drop
-* Perk bottle always give jug first, flopper second
+* Perk bottle is always jug first, flopper second
 * Geyser is not active
 
 ### Nacht Der Untoten
@@ -76,8 +75,10 @@ Play 7 new First Room Challenges
 * Added grenade wall buy
 
 ## Possible updates
-* Moon first room with gravity
+* Moon mp5 room
 * Kino changed to room above alley
+* Move kino nades
+* Move SNN nades
 
 
 ## Special thanks to:
