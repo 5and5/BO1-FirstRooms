@@ -1683,7 +1683,7 @@ onPlayerSpawned()
 
 
 				// testing only
-				//self thread get_position();
+				self thread get_position();
 
 				// setup game
 				self thread start_game();
@@ -3907,7 +3907,7 @@ chalk_round_over()
 
 round_think()
 {
-	level.round_number = 10;
+	level.round_number = 10; //5555
 	level.zombie_vars["zombie_spawn_delay"] = 1.2605; // round 10 spawn rate
 	level.zombie_move_speed = 105; // running speed
 	level.first_round = false;
@@ -5624,21 +5624,34 @@ coop_player_spawn_placement()
 						    (0, -172, 0));
 	}
 
+	if (level.script == "zombie_moon")
+	{
+		// mp5
+		spawn_origin = array((1842, 5367, 15),
+							 (1787, 1343, 343),
+							 (1843, 1279, 343),
+							 (1850, 1184, 343));
+
+		spawn_angle = array((0, 140, 0),
+						    (0, -140, 0),
+						    (0, -156, 0),
+						    (0, -172, 0));
+	}
 
 	players = get_players();
 	for( i = 0; i < players.size; i++ )
 	{
-		if (level.script == "zombie_moon")
-		{
-			spawn_origin[i] = structs[i].origin;
-			spawn_angle[i] = structs[i].angles;
-		}
 
 		players[i] setorigin( spawn_origin[i] ); //structs[i].origin
 		players[i] setplayerangles( spawn_angle[i] );
 		players[i].spectator_respawn = structs[i];
 	}
 
+		if (level.script == "zombie_moon")
+		{
+			spawn_origin[i] = structs[i].origin;
+			spawn_angle[i] = structs[i].angles;
+		}
 	//firstroomspawn
 }
 

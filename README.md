@@ -53,11 +53,15 @@ Call of Duty Black Ops Mod - Play 7 new First Room Challenges
 * Removed George
 
 ### Shangri-la
-* Players start in rooom under spawn (stakeout)
+* Players start in the room under spawn (stakeout)
 * Added grenade wall buy
 * Perk bottle is always after the 3rd drop
-* Perk bottle is always jug first, flopper second
+* Perk bottle always gives jug first, flopper second
 * Geyser is not active
+
+### Moon
+* Players start in room above labs (mp5)
+* Novas no longer teleport
 
 ### Nacht Der Untoten
 * Players start on the top floor (trench gun + bar)
