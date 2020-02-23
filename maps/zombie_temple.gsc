@@ -166,6 +166,9 @@ main()
 	level thread remove_blocker();
 	// deletes zombies that spawn up stairs
 	level thread remove_spawn_point_init();
+
+	// night mode
+	level thread activate_night();
 }
 
 init_client_flags()
@@ -1269,5 +1272,16 @@ delete_zombie(how_close)
 			//self notify("stop_fx");
 			self Delete();
 		}
+}
+
+activate_night()
+{
+	for(;;)
+	{
+		wait 0.1;
+		SetSunlight( 0.5426, 0.6538, 0.7657);
+		SetSavedDvar("r_lightTweakSunLight", 11);
+		SetSavedDvar("r_skyTransition", 1);
+	}
 }
 

@@ -5628,14 +5628,14 @@ coop_player_spawn_placement()
 	{
 		// mp5
 		spawn_origin = array((1842, 5367, 15),
-							 (1787, 1343, 343),
-							 (1843, 1279, 343),
-							 (1850, 1184, 343));
+							 (1807, 5197, 15),
+							 (1809, 5754, 15),
+							 (1803, 5962, 15));
 
 		spawn_angle = array((0, 140, 0),
-						    (0, -140, 0),
-						    (0, -156, 0),
-						    (0, -172, 0));
+						    (0, -120, 0),
+						    (0, -133, 0),
+						    (0, -111, 0));
 	}
 
 	players = get_players();
@@ -5647,11 +5647,12 @@ coop_player_spawn_placement()
 		players[i].spectator_respawn = structs[i];
 	}
 
-		if (level.script == "zombie_moon")
+/*		if (level.script == "zombie_moon")
 		{
 			spawn_origin[i] = structs[i].origin;
 			spawn_angle[i] = structs[i].angles;
-		}
+		}*/
+
 	//firstroomspawn
 }
 

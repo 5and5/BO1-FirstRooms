@@ -708,7 +708,7 @@ barricade_glitch_fix()
 spawn_nades_wallbuy()
 {
 	// spawn nades
-    model = Spawn( "script_model", ( 1190, 1489, 50.5 ) );
+    model = Spawn( "script_model", ( 1500, 1218, 20 ) );
     model.angles = ( 0, 90, 0 );
     model SetModel( GetWeaponModel( "frag_grenade_zm" ) );
     model.targetname = "frag_grenade_zm";

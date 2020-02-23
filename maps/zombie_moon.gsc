@@ -229,7 +229,7 @@ main()
 	level.zombie_speed_up = ::moon_speed_up;
 	level.ai_astro_explode = ::moon_push_zombies_when_astro_explodes;
 
-	level thread spawn_nades_wallbuy();
+	//level thread spawn_nades_wallbuy();
 }
 
 moon_push_zombies_when_astro_explodes( position )

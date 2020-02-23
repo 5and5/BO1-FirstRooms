@@ -79,9 +79,8 @@ Call of Duty Black Ops Mod - Play 7 new First Room Challenges
 * Added grenade wall buy
 
 ## Possible updates
-* Moon mp5 room
-* Kino changed to room above alley
-* Move kino nades
+* Change Kino to room above alley
+* Change Moon to semtex or m16
 * Move SNN nades
 
 
