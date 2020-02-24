@@ -168,7 +168,7 @@ main()
 	level thread remove_spawn_point_init();
 
 	// night mode
-	level thread activate_night();
+	//level thread activate_night();
 }
 
 init_client_flags()
@@ -1248,7 +1248,7 @@ remove_spawn_point_init()
 				zombies[i] thread delete_zombie(100);
 			}
 		}
-		//check every 1 seconds
+		//check every 0.1 seconds
 		wait(0.1);
 	}
 }

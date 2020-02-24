@@ -1,5 +1,5 @@
 # First Rooms
-Call of Duty Black Ops Mod - Play 7 new First Room Challenges
+Call of Duty Black Ops Mod - Play 8 new First Room Challenges
 
 ## Created by: 5and5
 

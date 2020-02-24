@@ -1683,7 +1683,7 @@ onPlayerSpawned()
 
 
 				// testing only
-				self thread get_position();
+				//self thread get_position();
 
 				// setup game
 				self thread start_game();

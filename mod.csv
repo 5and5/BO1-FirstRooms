@@ -2,10 +2,12 @@
 rawfile,maps/_zombiemode.gsc
 rawfile,maps/_zombiemode_weapons.gsc
 rawfile,maps/_zombiemode_perks.gsc
+rawfile,maps/_zombiemode_powerups.gsc
 
 // AI
 rawfile,maps/zombie_temple_ai_monkey.gsc
 rawfile,maps/_zombiemode_ai_director.gsc
+rawfile,maps/_zombiemode_ai_quad.gsc
 
 //MAPS
 rawfile,maps/zombie_cod5_prototype.gsc
@@ -21,9 +23,10 @@ rawfile,maps/zombie_moon.gsc
 
 //WEAPONS
 weapon,sp/stielhandgranate
-weapon,sp/sticky_grenade_zm
 weapon,sp/frag_grenade_zm
 
 //XMODEL
 xmodel,viewmodel_ger_nebelhandgrenate
 xmodel,weapon_ger_nebelhandgrenate
+xmodel,viewmodel_m67
+xmodel,weapon_m67_grenade
