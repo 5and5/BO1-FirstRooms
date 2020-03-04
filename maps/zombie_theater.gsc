@@ -708,13 +708,17 @@ barricade_glitch_fix()
 spawn_nades_wallbuy()
 {
 	// spawn nades
-    model = Spawn( "script_model", ( 1500, 1218, 20 ) );
+    model = Spawn( "script_model", ( 1500, 1125, 20 ) );
     model.angles = ( 0, 90, 0 );
-    model SetModel( GetWeaponModel( "frag_grenade_zm" ) );
-    model.targetname = "frag_grenade_zm";
-    trigger = Spawn( "trigger_radius_use", model.origin, 20, 0, 20 );
+    model SetModel( "german_grenade_bag" );
+    //model SetModel( GetWeaponModel( "frag_grenade_zm" ) );
+    //model.targetname = "frag_grenade_zm";
+    trigger = Spawn( "trigger_radius_use", model.origin, 20, 20, 20 );
     trigger.targetname = "weapon_upgrade";
-    trigger.target = "frag_grenade_zm";
+    //trigger.target = "frag_grenade_zm";
     trigger.zombie_weapon_upgrade = "frag_grenade_zm";
 
+    //chalk = Spawn( "script_model", model.origin );
+    //chalk.angles = ( 0, 90, 0 );
+    //chalk SetModel( "german_grenade_bag" );
 }

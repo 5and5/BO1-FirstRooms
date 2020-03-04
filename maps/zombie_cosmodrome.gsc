@@ -934,10 +934,10 @@ spawn_nades_wallbuy()
     model = Spawn( "script_model", ( 1605, 863, 420 ) );
     model.angles = ( 0, 0, 0 );
     model SetModel( GetWeaponModel( "frag_grenade_zm" ) );
-    model.targetname = "frag_grenade_zm";
+    //model.targetname = "frag_grenade_zm";
     trigger = Spawn( "trigger_radius_use", model.origin, 20, 0, 20 );
     trigger.targetname = "weapon_upgrade";
-    trigger.target = "frag_grenade_zm";
+    //trigger.target = "frag_grenade_zm";
     trigger.zombie_weapon_upgrade = "frag_grenade_zm";
 }
 

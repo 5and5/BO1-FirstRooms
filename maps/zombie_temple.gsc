@@ -166,9 +166,6 @@ main()
 	level thread remove_blocker();
 	// deletes zombies that spawn up stairs
 	level thread remove_spawn_point_init();
-
-	// night mode
-	//level thread activate_night();
 }
 
 init_client_flags()
@@ -1189,10 +1186,10 @@ spawn_nades_wallbuy()
     model = Spawn( "script_model", ( -166, -1075, -330 ) );
     model.angles = ( 0, 180, 0 );
     model SetModel( GetWeaponModel( "frag_grenade_zm" ) );
-    model.targetname = "frag_grenade_zm";
+    //model.targetname = "frag_grenade_zm";
     trigger = Spawn( "trigger_radius_use", model.origin, 20, 20, 20 );
     trigger.targetname = "weapon_upgrade";
-    trigger.target = "frag_grenade_zm";
+    //trigger.target = "frag_grenade_zm";
     trigger.zombie_weapon_upgrade = "frag_grenade_zm";
 }
 
@@ -1272,16 +1269,5 @@ delete_zombie(how_close)
 			//self notify("stop_fx");
 			self Delete();
 		}
-}
-
-activate_night()
-{
-	for(;;)
-	{
-		wait 0.1;
-		SetSunlight( 0.5426, 0.6538, 0.7657);
-		SetSavedDvar("r_lightTweakSunLight", 11);
-		SetSavedDvar("r_skyTransition", 1);
-	}
 }
 

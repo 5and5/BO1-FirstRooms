@@ -51,6 +51,7 @@ main()
 	precache_models();
 
 	PrecacheItem( "frag_grenade_zm" );
+	PrecacheItem( "stielhandgranate" ); //
 	PrecacheItem( "claymore_zm" );
 
 	//override difficulty
@@ -2825,12 +2826,13 @@ spectator_respawn()
 	println( "*************************Respawn Spectator***" );
 	assert( IsDefined( self.spectator_respawn ) );
 
-	origin = self.spectator_respawn.origin;
-	angles = self.spectator_respawn.angles;
+	origin = self.spectator_respawn;
+	angles = (0, 0, 0);
 
 	self setSpectatePermissions( false );
+	self Spawn( origin, angles );
 
-	new_origin = undefined;
+/*	new_origin = undefined;
 
 	if ( isdefined( level.check_valid_spawn_override ) )
 	{
@@ -2847,9 +2849,8 @@ spectator_respawn()
 		self Spawn( new_origin, angles );
 	}
 	else
-	{
-		self Spawn( origin, angles );
-	}
+	{*/
+//	}
 
 
 /*	we are not currently supporting the shared screen tech
@@ -5429,17 +5430,17 @@ coop_player_spawn_placement()
 {
 	structs = getstructarray( "initial_spawn_points", "targetname" );
 
-	temp_ent = Spawn( "script_model", (0,0,0) );
-	for( i = 0; i < structs.size; i++ )
-	{
-		temp_ent.origin = structs[i].origin;
-		temp_ent placeSpawnpoint();
-		structs[i].origin = temp_ent.origin;
-	}
-	temp_ent Delete();
-
 	flag_wait( "all_players_connected" );
 
+	// place spawn points
+/*	temp_ent = Spawn( "script_model", (0,0,0) );
+	for( i = 0; i < structs.size; i++ )
+	{
+		temp_ent.origin = spawn_origin;
+		temp_ent placeSpawnpoint();
+		spawn_origin = temp_ent.origin;
+	}
+	temp_ent Delete();*/
 	//chrisp - adding support for overriding the default spawning method
 
 	// init arrays
@@ -5568,7 +5569,7 @@ coop_player_spawn_placement()
 		spawn_origin = array((-1517, -735, 452),
 							(-1499, -823, 458),
 							(-1476, -898, 464),
-							(1464, -993, 471));
+							(-1464, -993, 471));
 
 		spawn_angle = array((0, -24, 0),
 						   (0, 7, 0),
@@ -5638,13 +5639,13 @@ coop_player_spawn_placement()
 						    (0, -111, 0));
 	}
 
+
 	players = get_players();
 	for( i = 0; i < players.size; i++ )
 	{
-
 		players[i] setorigin( spawn_origin[i] ); //structs[i].origin
-		players[i] setplayerangles( spawn_angle[i] );
-		players[i].spectator_respawn = structs[i];
+		players[i] setplayerangles( spawn_angle[i] ); //structs[i].angles
+		players[i].spectator_respawn = spawn_origin[i]; //structs[i];
 	}
 
 /*		if (level.script == "zombie_moon")

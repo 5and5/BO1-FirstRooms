@@ -1,5 +1,5 @@
 # First Rooms
-Call of Duty Black Ops Mod - Play 8 new First Room Challenges
+Call of Duty Black Ops Mod - Play 8 New First Room Challenges
 
 ## Created by: 5and5
 
@@ -9,7 +9,7 @@ Call of Duty Black Ops Mod - Play 8 new First Room Challenges
 
 [Twitter](https://twitter.com/5and55)
 
-
+[Download](https://github.com/5and5/First-Rooms/releases)
 
 ## Leaderboards
 
@@ -83,9 +83,21 @@ Call of Duty Black Ops Mod - Play 8 new First Room Challenges
 * Change Moon to semtex or m16
 * Move SNN nades
 
+## TODO
+* Add chalk or nade model
+* disable zip line
+* add nades to normal first rooms
+
+## Fix List
+* Players that have bled out no longer respawn outside of the room
+* Grenades no longer can be bought when full
+* Fourth player on COTD no longer spawns outside of the room
+
+
+
 
 ## Special thanks to:
 * **_SE2Dev_** - For making game_mod
 * **_Nukem_** - For making game_mod
 * **_Treyarch_** - For making the best zombie game of all time
-* **_JBird_** - Round 10 start fix
+* **_JBleezy_** - Round 10 start fix
