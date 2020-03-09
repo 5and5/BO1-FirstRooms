@@ -1406,6 +1406,19 @@ decide_hide_show_hint( endon_notify )
 				self SetVisibleToPlayer( self.chest_user );
 			}
 		}
+		/*else if(IsDefined(self.zombie_weapon_upgrade))
+		{
+			// fix for grenade ammo
+			if(is_lethal_grenade(self.zombie_weapon_upgrade) && max_ammo > 4)
+				{
+					max_ammo = 4;
+				}
+
+			if(is_tactical_grenade(self.zombie_weapon_upgrade) && max_ammo > 3)
+				{
+					max_ammo = 3;
+				}
+		}*/
 		else // all players
 		{
 			players = get_players();
@@ -2995,6 +3008,17 @@ weapon_give( weapon, is_upgrade )
 	self SwitchToWeapon( weapon );
 
 	self play_weapon_vo(weapon);
+
+	// fix for grenade ammo
+	if(is_lethal_grenade(weapon) && self GetWeaponAmmoClip(weapon) > 4)
+		{
+			self SetWeaponAmmoClip(weapon, 4);
+		}
+
+	if(is_tactical_grenade(weapon) && self GetWeaponAmmoClip(weapon) > 3)
+		{
+			self SetWeaponAmmoClip(weapon, 3);
+		}
 }
 
 play_weapon_vo(weapon)
@@ -3124,6 +3148,17 @@ ammo_give( weapon )
 // 		{
 // 			self GiveMaxAmmo( weapon+"_upgraded" );
 // 		}
+
+		if(is_lethal_grenade(weapon) && self GetWeaponAmmoClip(weapon) > 4)
+			{
+				self SetWeaponAmmoClip(weapon, 4);
+			}
+
+		if(is_tactical_grenade(weapon) && self GetWeaponAmmoClip(weapon) > 3)
+			{
+				self SetWeaponAmmoClip(weapon, 3);
+			}
+
 		return true;
 	}
 
