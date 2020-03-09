@@ -323,6 +323,7 @@ local_zone_init()
 //*****************************************************************************
 include_weapons()
 {
+	include_weapon( "stielhandgranate", false, true );
 	include_weapon( "frag_grenade_zm", false, true);
 	include_weapon( "sticky_grenade_zm", false, true );
 	include_weapon( "spikemore_zm", false, true );
@@ -971,7 +972,8 @@ temple_offhand_weapon_overrride()
 {
 	register_lethal_grenade_for_level( "frag_grenade_zm" );
 	register_lethal_grenade_for_level( "sticky_grenade_zm" );
-	level.zombie_lethal_grenade_player_init = "frag_grenade_zm";
+	register_lethal_grenade_for_level( "stielhandgranate" );
+	level.zombie_lethal_grenade_player_init = "stielhandgranate";
 
 	register_tactical_grenade_for_level( "zombie_cymbal_monkey" );
 	level.zombie_tactical_grenade_player_init = undefined;
@@ -1180,18 +1182,6 @@ temple_revive_solo_fx()
 	}
 }
 
-spawn_nades_wallbuy()
-{
-	// spawn nades
-    model = Spawn( "script_model", ( -166, -1075, -330 ) );
-    model.angles = ( 0, 180, 0 );
-    model SetModel( GetWeaponModel( "frag_grenade_zm" ) );
-    //model.targetname = "frag_grenade_zm";
-    trigger = Spawn( "trigger_radius_use", model.origin, 20, 20, 20 );
-    trigger.targetname = "weapon_upgrade";
-    //trigger.target = "frag_grenade_zm";
-    trigger.zombie_weapon_upgrade = "frag_grenade_zm";
-}
 
 remove_blocker()
 {
@@ -1271,3 +1261,14 @@ delete_zombie(how_close)
 		}
 }
 
+spawn_nades_wallbuy()
+{
+	// spawn nades
+    model = Spawn( "script_model", ( -165, -1075, -330 ) );
+    model.angles = ( 90, 150, 0 );
+    model SetModel( "german_grenade_bag" );
+
+    trigger = Spawn( "trigger_radius_use", model.origin, 20, 20, 20 );
+    trigger.targetname = "weapon_upgrade";
+    trigger.zombie_weapon_upgrade = "stielhandgranate";
+}

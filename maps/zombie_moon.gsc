@@ -176,6 +176,7 @@ main()
 
 	level thread maps\zombie_moon_sq::start_moon_sidequest();
 
+	//level thread spawn_nades_wallbuy();
 	level thread init_hackables();
 
 //	level thread maps\zombie_moon_achievement::init();
@@ -229,7 +230,7 @@ main()
 	level.zombie_speed_up = ::moon_speed_up;
 	level.ai_astro_explode = ::moon_push_zombies_when_astro_explodes;
 
-	//level thread spawn_nades_wallbuy();
+	level thread give_hacker();
 }
 
 moon_push_zombies_when_astro_explodes( position )
@@ -1058,6 +1059,7 @@ anim_override_func()
 // ------------------------------------------------------------------------------------------------
 include_weapons()
 {
+	include_weapon( "stielhandgranate", false);
 	include_weapon( "frag_grenade_zm", false );
 	include_weapon( "sticky_grenade_zm", false );
 	include_weapon( "claymore_zm", false );
@@ -1365,7 +1367,8 @@ moon_offhand_weapon_overrride()
 {
 	register_lethal_grenade_for_level( "frag_grenade_zm" );
 	register_lethal_grenade_for_level( "sticky_grenade_zm" );
-	level.zombie_lethal_grenade_player_init = "frag_grenade_zm";
+	register_lethal_grenade_for_level( "stielhandgranate" );
+	level.zombie_lethal_grenade_player_init = "stielhandgranate";
 
 	register_tactical_grenade_for_level( "zombie_black_hole_bomb" );
 	level.zombie_tactical_grenade_player_init = undefined;
@@ -2270,22 +2273,16 @@ bypass_nml()
 	level.ignore_distance_tracking = false;
 
 	println("test");
-	//level.round_number = 10; //5555
-	//level.zombie_vars["zombie_spawn_delay"] = 1.2605; // round 10 spawn rate
-	//level.zombie_move_speed = 105; // running speed
-	//level.first_round = false;
 }
 
 spawn_nades_wallbuy()
 {
-	// spawn nades
-    model = Spawn( "script_model", ( 2100, 5600, 50.5 ) );
-    model.angles = ( 0, 90, 0 );
-    model SetModel( GetWeaponModel( "frag_grenade_zm" ) );
-    model.targetname = "frag_grenade_zm";
-    trigger = Spawn( "trigger_radius_use", model.origin, 20, 0, 20 );
-    trigger.targetname = "weapon_upgrade";
-    trigger.target = "frag_grenade_zm";
-    trigger.zombie_weapon_upgrade = "frag_grenade_zm";
+    // spawn nades
+    model = Spawn( "script_model", ( 2114, 5600, 50.5 ) );
+    model.angles = ( 90, 150, 0 );
+    model SetModel( "german_grenade_bag" );
 
+    trigger = Spawn( "trigger_radius_use", model.origin, 20, 20, 20 );
+    trigger.targetname = "weapon_upgrade";
+    trigger.zombie_weapon_upgrade = "frag_grenade_zm";
 }

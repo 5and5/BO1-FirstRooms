@@ -1971,9 +1971,9 @@ factory_german_safe()
 
 spawn_nades_wallbuy()
 {
-    model = Spawn( "script_model", ( 802.5, -223, 110 ) );
-    model.angles = ( 0, 90, 0 );
-    model SetModel( GetWeaponModel( "stielhandgranate" ) );
+    model = Spawn( "script_model", ( 803, -223, 110 ) );
+    model.angles = ( 90, 90, 0 );
+    model SetModel( "german_grenade_bag" );
     //model.targetname = "stielhandgranate";
     trigger = Spawn( "trigger_radius_use", model.origin, 20, 20, 20 );
     trigger.targetname = "weapon_upgrade";

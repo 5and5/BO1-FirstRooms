@@ -302,6 +302,7 @@ centrifuge_jumpdown_fix()
 
 include_weapons()
 {
+	include_weapon( "stielhandgranate", false, true );
 	include_weapon( "frag_grenade_zm", false, true );
 	include_weapon( "claymore_zm", false, true );
 
@@ -863,7 +864,8 @@ player_set_viewmodel_override( entity_num )
 cosmodrome_offhand_weapon_overrride()
 {
 	register_lethal_grenade_for_level( "frag_grenade_zm" );
-	level.zombie_lethal_grenade_player_init = "frag_grenade_zm";
+	register_lethal_grenade_for_level( "stielhandgranate" );
+	level.zombie_lethal_grenade_player_init = "stielhandgranate";
 
 	register_tactical_grenade_for_level( "zombie_black_hole_bomb" );
 	register_tactical_grenade_for_level( "zombie_nesting_dolls" );
@@ -931,14 +933,14 @@ cosmodrome_fade_in_notify()
 spawn_nades_wallbuy()
 {
 	// spawn nades
-    model = Spawn( "script_model", ( 1605, 863, 420 ) );
-    model.angles = ( 0, 0, 0 );
-    model SetModel( GetWeaponModel( "frag_grenade_zm" ) );
+    model = Spawn( "script_model", ( 1605, 862, 420 ) );
+    model.angles = ( 90, 0, 0 );
+    model SetModel( "german_grenade_bag" );
     //model.targetname = "frag_grenade_zm";
     trigger = Spawn( "trigger_radius_use", model.origin, 20, 0, 20 );
     trigger.targetname = "weapon_upgrade";
     //trigger.target = "frag_grenade_zm";
-    trigger.zombie_weapon_upgrade = "frag_grenade_zm";
+    trigger.zombie_weapon_upgrade = "stielhandgranate";
 }
 
 curbs_fix()

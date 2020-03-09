@@ -51,7 +51,7 @@ main()
 	precache_models();
 
 	PrecacheItem( "frag_grenade_zm" );
-	PrecacheItem( "stielhandgranate" ); //
+	PrecacheItem( "stielhandgranate" );
 	PrecacheItem( "claymore_zm" );
 
 	//override difficulty
@@ -5458,7 +5458,7 @@ coop_player_spawn_placement()
 	if (level.script == "zombie_theater")
 	{
 		// mp5
-		spawn_origin = array((1157, 927,-15),
+		/*spawn_origin = array((1157, 927,-15),
 							(1157,999,15),
 							(1157,1099,15),
 							(1157,1210,15));
@@ -5466,7 +5466,18 @@ coop_player_spawn_placement()
 		spawn_angle = array((0, 123, 0),
 						   (0, 150, 0),
 						   (0, -153, 0),
-						   (0, -148, 0));
+						   (0, -148, 0));*/
+
+		// pm63
+		spawn_origin = array((652, -780, 330),
+							(648, -677, 332),
+							(627, -510, 320),
+							(476, -389, 323));
+
+		spawn_angle = array((0, 45, 0),
+						   (0, 51, 0),
+						   (0, 23, 0),
+						   (0, -9, 0));
 	}
 
 	if (level.script == "zombie_pentagon")

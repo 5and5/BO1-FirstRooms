@@ -23,17 +23,15 @@ Call of Duty Black Ops Mod - Play 8 New First Room Challenges
 * Start with quick revive in solo
 
 ## Grenades
-### Frag Grenade
-* Buffed damage from 300 to 600 (same as stielhandgranate)
-* Reduced throw time from 0.6s to 0.2s
 
 ### Stielhandgranate
+* Added as default grenade to every map
 * Reduced throw time from 0.4s to 0.2s
 
 ## Maps
 
 ### Kino Der Toten
-* Players start in the dressing room (mp5)
+* Players start in the room above spawn (pm63)
 * Added grenade wall buy
 
 ### Five
@@ -72,6 +70,8 @@ Call of Duty Black Ops Mod - Play 8 New First Room Challenges
 
 ### Shi No Numa
 * Players start in fishing hut (mp40)
+* Jug machine is active
+* Jug only give you 150 health (3 hit down)
 * Added grenade wall buy
 
 ### Der Riese
@@ -84,11 +84,10 @@ Call of Duty Black Ops Mod - Play 8 New First Room Challenges
 * Move SNN nades
 
 ## TODO
-* Add chalk or nade model
-* disable zip line
-* add nades to normal first rooms
 
 ## Fix List
+* Added model to grenade wallbuys
+* disable zip line
 * Players that have bled out no longer respawn outside of the room
 * Grenades no longer can be bought when full
 * Fourth player on COTD no longer spawns outside of the room
@@ -100,4 +99,4 @@ Call of Duty Black Ops Mod - Play 8 New First Room Challenges
 * **_SE2Dev_** - For making game_mod
 * **_Nukem_** - For making game_mod
 * **_Treyarch_** - For making the best zombie game of all time
-* **_JBleezy_** - Round 10 start fix
+* **_JBleezy_** - For round 10 start fix

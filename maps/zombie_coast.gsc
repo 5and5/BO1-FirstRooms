@@ -415,6 +415,7 @@ coast_zone_init()
 
 include_weapons()
 {
+	include_weapon( "stielhandgranate", false, true );
 	include_weapon( "frag_grenade_zm", false );
 	include_weapon( "sticky_grenade_zm", false, true );
 	include_weapon( "claymore_zm", false, true );
@@ -544,7 +545,8 @@ coast_offhand_weapon_overrride()
 {
 	register_lethal_grenade_for_level( "frag_grenade_zm" );
 	register_lethal_grenade_for_level( "sticky_grenade_zm" );
-	level.zombie_lethal_grenade_player_init = "frag_grenade_zm";
+	register_lethal_grenade_for_level( "stielhandgranate" );
+	level.zombie_lethal_grenade_player_init = "stielhandgranate";
 
 	register_tactical_grenade_for_level( "zombie_nesting_dolls" );
 	level.zombie_tactical_grenade_player_init = undefined;
@@ -1370,13 +1372,12 @@ zombie_coast_poi_positioning_func(origin, forward)
 spawn_nades_wallbuy()
 {
 	// spawn nades
-    model = Spawn( "script_model", ( -1082, -1078, 530 ) );
-    model.angles = ( 0, 90, 0 );
-    model SetModel( GetWeaponModel( "frag_grenade_zm" ) );
-    //model.targetname = "frag_grenade_zm";
+    model = Spawn( "script_model", ( -1080.5, -1078, 530 ) );
+    model.angles = ( 90, 100, 0 );
+    model SetModel( "german_grenade_bag" );
+
     trigger = Spawn( "trigger_radius_use", model.origin, 30, 30, 30 );
     trigger.targetname = "weapon_upgrade";
-    //trigger.target = "frag_grenade_zm";
-    trigger.zombie_weapon_upgrade = "frag_grenade_zm";
+    trigger.zombie_weapon_upgrade = "stielhandgranate";
 
 }

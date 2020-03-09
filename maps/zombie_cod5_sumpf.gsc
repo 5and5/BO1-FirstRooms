@@ -119,6 +119,8 @@ main()
 	SetSavedDvar( "r_lightGridContrast", .1 );
 
 	VisionSetNaked("zombie_sumpf", 0);
+
+	level thread activate_jug();
 }
 
 setup_water_physics()
@@ -865,13 +867,23 @@ spawn_nades_wallbuy()
 {
     //model = Spawn( "script_model", ( 7905, -1529, -636 ) ); //stg
     //model = Spawn( "script_model", ( 12162, -1427, -606 ) ); //type100
+    //model = Spawn( "script_model", ( 8733, 3133, -615 ) ); // other side of room
     model = Spawn( "script_model", ( 8288, 3552, -615 ) ); //mp40 juju
-    //model = Spawn( "script_model", ( 8733, 3133, -615 ) );
-    model.angles = ( 0, 90, 0 );
-    model SetModel( GetWeaponModel( "stielhandgranate" ) );
-    model.targetname = "stielhandgranate";
+    model.angles = ( 90, 220, 0 );
+    model SetModel( "german_grenade_bag" );
+
     trigger = Spawn( "trigger_radius_use", model.origin, 20, 20, 20 );
     trigger.targetname = "weapon_upgrade";
-    trigger.target = "stielhandgranate";
     trigger.zombie_weapon_upgrade = "stielhandgranate";
+}
+
+activate_jug()
+{
+	flag_wait( "all_players_connected" );
+	wait 3;
+
+	level notify( "master_switch_activated" );
+    level notify("juggernog_sumpf_on");
+    level notify( "specialty_armorvest_power_on" );
+    clientnotify("jugg_on");
 }

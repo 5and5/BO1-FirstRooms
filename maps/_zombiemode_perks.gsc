@@ -1473,6 +1473,10 @@ give_perk( perk, bought )
 	if(perk == "specialty_armorvest")
 	{
 		self.preMaxHealth = self.maxhealth;
+
+		if (level.script == "zombie_cod5_sumpf") {
+			self SetMaxHealth(150);
+		} else
 		self SetMaxHealth( level.zombie_vars["zombie_perk_juggernaut_health"] );
 	}
 	else if(perk == "specialty_armorvest_upgrade")

@@ -69,6 +69,9 @@ main()
 
 	level.door_dialog_function = maps\_zombiemode::play_door_dialog;
 	level.first_round_spawn_func = true;
+
+	// register waw nades
+	level.register_offhand_weapons_for_level_defaults_override = ::offhand_weapon_overrride;
 	//level.round_spawn_func = maps\zombie_theater_quad::Intro_Quad_Spawn;;
 
 	include_weapons();
@@ -159,6 +162,7 @@ theater_playanim( animname )
 //*****************************************************************************
 include_weapons()
 {
+	include_weapon( "stielhandgranate", false, true );
 	include_weapon( "frag_grenade_zm", false, true );
 	include_weapon( "claymore_zm", false, true );
 
@@ -263,6 +267,8 @@ include_weapons()
 
 	precacheItem( "explosive_bolt_zm" );
 	precacheItem( "explosive_bolt_upgraded_zm" );
+
+	//maps\_zombiemode_weapons::add_zombie_weapon( "stielhandgranate", "", 						&"WAW_ZOMBIE_WEAPON_STIELHANDGRANATE_250", 		250,	"grenade", "", 250 );
 
 	// get the bowie into the collector achievement list
 	level.collector_achievement_weapons = array_add( level.collector_achievement_weapons, "bowie_knife_zm" );
@@ -441,6 +447,10 @@ theater_zone_init()
 	// hell room
 	zone_init( "west_balcony_zone");
 	enable_zone( "west_balcony_zone");
+
+	// pm63 room
+	zone_init( "vip_zone");
+	enable_zone( "vip_zone");
 
 
 	flag_init( "always_on" );
@@ -705,20 +715,29 @@ barricade_glitch_fix()
 	collision Hide();
 }
 
+offhand_weapon_overrride()
+{
+	register_lethal_grenade_for_level( "stielhandgranate" );
+	level.zombie_lethal_grenade_player_init = "stielhandgranate";
+}
+
 spawn_nades_wallbuy()
 {
 	// spawn nades
-    model = Spawn( "script_model", ( 1500, 1125, 20 ) );
-    model.angles = ( 0, 90, 0 );
+    model = Spawn( "script_model", ( 580, -788, 380 ) );
+    model.angles = ( 90, 270, 0 );
     model SetModel( "german_grenade_bag" );
-    //model SetModel( GetWeaponModel( "frag_grenade_zm" ) );
-    //model.targetname = "frag_grenade_zm";
+
     trigger = Spawn( "trigger_radius_use", model.origin, 20, 20, 20 );
     trigger.targetname = "weapon_upgrade";
-    //trigger.target = "frag_grenade_zm";
-    trigger.zombie_weapon_upgrade = "frag_grenade_zm";
+    trigger.zombie_weapon_upgrade = "stielhandgranate";
 
-    //chalk = Spawn( "script_model", model.origin );
-    //chalk.angles = ( 0, 90, 0 );
-    //chalk SetModel( "german_grenade_bag" );
+    // spawn nades coop
+    model1 = Spawn( "script_model", ( 920, -1008, 370 ) );
+    model1.angles = ( 90, 90, 0 );
+    model1 SetModel( "german_grenade_bag" );
+
+    trigger1 = Spawn( "trigger_radius_use", model1.origin, 20, 20, 20 );
+    trigger1.targetname = "weapon_upgrade";
+    trigger1.zombie_weapon_upgrade = "stielhandgranate";
 }

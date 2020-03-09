@@ -38,6 +38,9 @@ main()
 
 	level.door_dialog_function = maps\_zombiemode::play_door_dialog;
 
+	// register waw nades
+	level.register_offhand_weapons_for_level_defaults_override = ::offhand_weapon_overrride;
+
 	include_weapons();
 	include_powerups();
 
@@ -210,6 +213,7 @@ enable_zone_elevators_init()
 
 include_weapons()
 {
+	include_weapon( "stielhandgranate", false, true );
 	include_weapon( "frag_grenade_zm", false, true );
 	include_weapon( "claymore_zm", false, true );
 
@@ -979,16 +983,21 @@ spawn_doubletap_machine()
 	machine_clip Hide();
 }
 
+offhand_weapon_overrride()
+{
+	register_lethal_grenade_for_level( "stielhandgranate" );
+	level.zombie_lethal_grenade_player_init = "stielhandgranate";
+}
+
 spawn_nades_wallbuy()
 {
 	// spawn nades
     model = Spawn( "script_model", ( -1220, 2170, -465 ) ); //-1190, 2565, -445 ) );
-    model.angles = ( 0, 90, 0 );
-    model SetModel( GetWeaponModel( "frag_grenade_zm" ) );
-    //model.targetname = "frag_grenade_zm";
+    model.angles = ( 90, 90, 0 );
+    model SetModel( "german_grenade_bag" );
+
     trigger = Spawn( "trigger_radius_use", model.origin, 20, 20, 20 );
     trigger.targetname = "weapon_upgrade";
-    //trigger.target = "frag_grenade_zm";
-    trigger.zombie_weapon_upgrade = "frag_grenade_zm";
+    trigger.zombie_weapon_upgrade = "stielhandgranate";
 
 }
