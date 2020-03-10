@@ -229,8 +229,6 @@ main()
 
 	level.zombie_speed_up = ::moon_speed_up;
 	level.ai_astro_explode = ::moon_push_zombies_when_astro_explodes;
-
-	level thread give_hacker();
 }
 
 moon_push_zombies_when_astro_explodes( position )
@@ -973,6 +971,11 @@ moon_zone_init()
 	//bio dome
 	zone_init( "forest_zone");
 	enable_zone( "forest_zone");
+
+	// m16
+	zone_init( "cata_left_middle_zone");
+	enable_zone( "cata_left_middle_zone");
+
 
 	// receiving airlocks
 	add_adjacent_zone( "airlock_bridge_zone", "bridge_zone", "receiving_exit" );

@@ -26,7 +26,8 @@ Call of Duty Black Ops Mod - Play 8 New First Room Challenges
 
 ### Stielhandgranate
 * Added as default grenade to every map
-* Reduced throw time from 0.4s to 0.2s
+* Reduced hold animation from 0.4s to 0.2s
+* Reduced throw animation from 0.36s to 0.2s
 
 ## Maps
 
@@ -78,18 +79,20 @@ Call of Duty Black Ops Mod - Play 8 New First Room Challenges
 * Players start in hall way towards jug (trench gun)
 * Added grenade wall buy
 
-## Possible updates
-* Change Kino to room above alley
-* Change Moon to semtex or m16
-* Move SNN nades
+## Patch Notes 1.3
 
-## TODO
+### Change List
+* Added grenade bag model to wallbuys
+* Added stielhandgranate to every map
+* Buffed stielhandgrante throw speed
+* Moved Kino to pm63
+* Added three hit jug to SNN
 
-## Fix List
-* Added model to grenade wallbuys
-* disable zip line
+### Fix List
 * Players that have bled out no longer respawn outside of the room
 * Grenades no longer can be bought when full
+* Fix glitch that allow players to have 5 grenades
+* Disabled zip line on COTD
 * Fourth player on COTD no longer spawns outside of the room
 
 
