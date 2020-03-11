@@ -82,18 +82,19 @@ Call of Duty Black Ops Mod - Play 8 New First Room Challenges
 ## Patch Notes v1.2
 
 ### Change List
-* Added grenade bag model to wallbuys
-* Added stielhandgranate to every map
+* Added grenade bag model to grenade wallbuys
+* Added stielhandgranate as default grenade to every map
 * Buffed stielhandgrante throw speed
-* Moved Kino to pm63
-* Added three hit jug to SNN
+* Moved Kino to the room above spawn (pm63)
+* Added three hit jug to Shi No Numa (150 health)
 
-### Fix List
+### Bug Fixes
 * Players that have bled out no longer respawn outside of the room
+* Player four on COTD no longer spawns outside of the room
 * Grenades no longer can be bought when full
-* Fix glitch that allow players to have 5 grenades
+* Having five grenades is no longer possible
 * Disabled zip line on COTD
-* Fourth player on COTD no longer spawns outside of the room
+* FirstRooms shortcut should work properly now
 
 
 
