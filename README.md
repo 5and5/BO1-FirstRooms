@@ -79,7 +79,7 @@ Call of Duty Black Ops Mod - Play 8 New First Room Challenges
 * Players start in hall way towards jug (trench gun)
 * Added grenade wall buy
 
-## Patch Notes 1.3
+## Patch Notes v1.2
 
 ### Change List
 * Added grenade bag model to wallbuys

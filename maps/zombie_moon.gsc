@@ -2275,7 +2275,6 @@ bypass_nml()
 		flag_set( "zombie_drop_powerups" );
 	level.ignore_distance_tracking = false;
 
-	println("test");
 }
 
 spawn_nades_wallbuy()
