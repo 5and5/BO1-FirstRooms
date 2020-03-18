@@ -94,7 +94,7 @@ Call of Duty Black Ops Mod - Play 8 New First Room Challenges
 * Grenades no longer can be bought when full
 * Having five grenades is no longer possible
 * Disabled zip line on COTD
-* FirstRooms shortcut should work properly now
+* FirstRooms shortcut should now work properly
 
 
 

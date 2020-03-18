@@ -871,6 +871,7 @@ spawn_nades_wallbuy()
     model = Spawn( "script_model", ( 8288, 3552, -615 ) ); //mp40 juju
     model.angles = ( 90, 220, 0 );
     model SetModel( "german_grenade_bag" );
+    model.targetname = "stielhandgranate";
 
     trigger = Spawn( "trigger_radius_use", model.origin, 20, 20, 20 );
     trigger.targetname = "weapon_upgrade";
