@@ -1,6 +1,10 @@
 # First Rooms
 Call of Duty Black Ops Mod - Play 8 New First Room Challenges
 
+## Download
+
+[Download](https://github.com/5and5/First-Rooms/releases)
+
 ## Created by: 5and5
 
 [YouTube](https://www.youtube.com/user/Zomb0s4life)
@@ -8,8 +12,6 @@ Call of Duty Black Ops Mod - Play 8 New First Room Challenges
 [Twitch](https://twitch.tv/5and5)
 
 [Twitter](https://twitter.com/5and55)
-
-[Download](https://github.com/5and5/First-Rooms/releases)
 
 ## Leaderboards
 
