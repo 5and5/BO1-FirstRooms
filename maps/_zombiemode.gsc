@@ -1542,7 +1542,7 @@ onPlayerConnect_clientDvars()
 		"compass", "0",
 		"hud_showStance", "0",
 		"cg_thirdPerson", "0",
-		"cg_fov", "65",
+		"cg_fov", "75",
 		"cg_thirdPersonAngle", "0",
 		"ammoCounterHide", "1",
 		"miniscoreboardhide", "1",
@@ -1620,7 +1620,6 @@ onPlayerSpawned()
 		self PlayerKnockback( false );
 
 		self SetClientDvars( "cg_thirdPerson", "0",
-			"cg_fov", "75",
 			"cg_thirdPersonAngle", "0",
 			"player_strafeSpeedScale", 1,
 			"player_backSpeedScale", 1 );
@@ -1688,6 +1687,7 @@ onPlayerSpawned()
 
 				// setup game
 				self thread start_game();
+				self thread disable_doors();
 			}
 		}
 	}
@@ -6812,16 +6812,28 @@ start_game()
 	}
 }
 
+disable_doors()
+{
+	level endon( "round_start");
+	flag_wait("all_players_spawned");
+
+	zombie_doors = GetEntArray( "zombie_door", "targetname" );
+	for( i = 0; i < zombie_doors.size; i++ )
+    {
+    	zombie_doors[i] trigger_off();
+    }
+}
+
 get_position()
 {
 	flag_wait("all_players_spawned");
-	player = get_players()[0];
+	players = get_players()[0];
 
 	while(1)
 	{
 		//iprintln(level.zombie_vars["zombie_spawn_delay"]);
-		iprintln(player.origin);
-		iprintln(player.angles);
+		iprintln(players.origin);
+		iprintln(players.angles);
 		wait .5;
 	}
 }

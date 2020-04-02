@@ -20,9 +20,9 @@ Call of Duty Black Ops Mod - Play 8 New First Room Challenges
 ## General
 * Round 10 start
 * Points set to 2000
-* Default fov set to 75
 * Fixed backward walking speed
 * Start with quick revive in solo
+* Doors can not be opened
 
 ## Grenades
 
@@ -98,6 +98,11 @@ Call of Duty Black Ops Mod - Play 8 New First Room Challenges
 * Disabled zip line on COTD
 * FirstRooms shortcut should now work properly
 
+TODO:
+* Move nades on kino
+* Added higher starting round on for 3/4p - 15
+* fix extra nade buying if possible
+* Move moon to nml if possible
 
 
 
